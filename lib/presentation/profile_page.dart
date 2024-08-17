@@ -11,37 +11,41 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPage(
-        tBody: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const CircleAvatar(
-                radius: 85,
-                backgroundColor: Colors.teal,
-                child: CircleAvatar(
-                  radius: 80,
-                  foregroundImage:
-                      AssetImage("assets/images/lettuce_chat_logo.jpeg"),
-                ),
-              ),
-              const Gap(40),
-              const CustomTextField(
-                  hint: "Yasmine Raef Mohamed", textIcon: Icons.abc),
-              const Gap(20),
-              const CustomTextField(
-                  hint: "+1 (929) 739-8937", textIcon: Icons.numbers),
-              const Gap(20),
-              const CustomTextField(hint: "01/01/2004", textIcon: Icons.cake),
-              const Gap(40),
-              GoToButton(
-                  textThis: "profileSave".translateS(context),
-                  directedPage: NamedRoutes.profile),
-              const Gap(20),
-              GoToButton(
-                  textThis: "profileDelete".translateS(context),
-                  directedPage: NamedRoutes.splash)
-            ]),
+        tBody: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircleAvatar(
+                      radius: 85,
+                      backgroundColor: Colors.teal,
+                      child: CircleAvatar(
+                        radius: 80,
+                        foregroundImage:
+                            AssetImage("assets/images/lettuce_chat_logo.jpeg"),
+                      ),
+                    ),
+                    const Gap(40),
+                    const CustomTextField(
+                        hint: "Yasmine Raef Mohamed", textIcon: Icons.abc),
+                    const Gap(20),
+                    const CustomTextField(
+                        hint: "+1 (929) 739-8937", textIcon: Icons.numbers),
+                    const Gap(20),
+                    const CustomTextField(
+                        hint: "01/01/2004", textIcon: Icons.cake),
+                    const Gap(40),
+                    GoToButton(
+                        textThis: "profileSave".translateS(context),
+                        directedPage: NamedRoutes.profile),
+                    const Gap(20),
+                    GoToButton(
+                        textThis: "profileDelete".translateS(context),
+                        directedPage: NamedRoutes.splash)
+                  ]),
+            ),
           ),
         ),
         appBarIcon: Icons.arrow_back,

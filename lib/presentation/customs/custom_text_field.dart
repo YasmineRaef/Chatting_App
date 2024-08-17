@@ -17,16 +17,14 @@ class CustomTextField extends StatelessWidget {
                 bottomLeft: Radius.circular(20))),
         child: Center(
           child: TextField(
+            cursorColor: Colors.black,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(5),
-              fillColor: Colors.grey.shade200,
-              hintText: hint,
-              border: InputBorder.none,
-              icon: Icon(
-                textIcon,
-                color: Colors.grey,
-              ),
-            ),
+                contentPadding: const EdgeInsets.all(5),
+                fillColor: Colors.grey.shade200,
+                hintText: hint,
+                border: InputBorder.none,
+                icon: Icon(textIcon),
+                iconColor: Colors.grey.shade800),
           ),
         ));
   }

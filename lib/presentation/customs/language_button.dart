@@ -37,7 +37,10 @@ class _LanguageButtonState extends State<LanguageButton> {
                 box.write('isEnglish', isEnglish);
               });
             },
-            icon: const Icon(Icons.language))
+            icon: const Icon(
+              Icons.language,
+              color: Colors.black,
+            ))
       ]),
     );
   }

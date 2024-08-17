@@ -17,13 +17,11 @@ class GoToButton extends StatelessWidget {
       width: 300,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
+        border: Border.all(color: Colors.black),
         color: Colors.teal,
       ),
       child: TextButton(
-        child: Text(
-          textThis,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
-        ),
+        child: Text(textThis, style: Theme.of(context).textTheme.bodySmall),
         onPressed: () => Get.offNamed(directedPage),
       ),
     );

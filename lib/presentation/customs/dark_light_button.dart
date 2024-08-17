@@ -26,7 +26,7 @@ class _DarkLightButtonState extends State<DarkLightButton> {
             : "light".translateS(context)),
         const Gap(10),
         IconButton(
-          icon: Icon(myState),
+          icon: Icon(myState, color: Colors.black),
           onPressed: () {
             setState(() {
               myState = (myState == Icons.dark_mode

@@ -25,8 +25,11 @@ class CustomPage extends StatelessWidget {
                   onPressed: () {
                     Get.offNamed(directedPage);
                   },
-                  icon: Icon(appBarIcon)),
-              Text(pageTitle),
+                  icon: Icon(
+                    appBarIcon,
+                    color: Theme.of(context).iconTheme.color,
+                  )),
+              Text(pageTitle, style: Theme.of(context).textTheme.bodySmall),
               InkWell(
                 onTap: () {
                   Get.offNamed(NamedRoutes.profile);

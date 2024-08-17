@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../resources/theme_manager.dart';
+
 class CustomSplashScreen extends StatelessWidget {
   const CustomSplashScreen({super.key, required this.talk, required this.ui});
   final String talk;
@@ -13,10 +15,12 @@ class CustomSplashScreen extends StatelessWidget {
       child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         const Gap(20),
-        const SizedBox(
+        SizedBox(
           height: 300,
           child: Image(
-            image: AssetImage('assets/images/lettuce_chat_logo.jpeg'),
+            image: AppTheme.themeMode == ThemeMode.light
+                ? const AssetImage('assets/images/lettuce_chat_logo.jpeg')
+                : const AssetImage('assets/images/lettuce_chat_logo_dark.jpeg'),
           ),
         ),
         const Gap(20),

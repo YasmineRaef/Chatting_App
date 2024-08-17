@@ -1,5 +1,4 @@
 import 'package:chatting_app/presentation/customs/chatter.dart';
-import 'package:chatting_app/presentation/customs/separate_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -31,7 +30,7 @@ class HomeScreen extends StatelessWidget {
               const Gap(10),
               const Chatter(),
               const Gap(10),
-              const SeparateWidgets(),
+              const Divider(),
             ],
           ],
         ),

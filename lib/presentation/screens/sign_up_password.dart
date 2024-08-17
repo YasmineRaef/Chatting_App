@@ -2,7 +2,6 @@ import 'package:chatting_app/app/app_localizations.dart';
 import 'package:chatting_app/presentation/customs/custom_splash_screen.dart';
 import 'package:chatting_app/presentation/customs/custom_text_field.dart';
 import 'package:chatting_app/presentation/customs/go_to_button.dart';
-import 'package:chatting_app/presentation/customs/separate_widgets.dart';
 import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -20,7 +19,7 @@ class SignUpPassword extends StatelessWidget {
               hint: "createPass".translateS(context),
               textIcon: Icons.remove_red_eye),
           const Gap(20),
-          const SeparateWidgets(),
+          const Divider(),
           const Gap(20),
           CustomTextField(
               hint: "confirmPass".translateS(context),

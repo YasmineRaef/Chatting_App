@@ -31,3 +31,4 @@ flutter:
     - assets\lang\en.json
     - assets\images\lettuce_chat_logo.jpeg
     - assets\images\profile_lettuce.jpg
+    - assets\images\lettuce_chat_logo_dark.jpeg

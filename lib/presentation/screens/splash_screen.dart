@@ -1,6 +1,5 @@
 import 'package:chatting_app/app/app_localizations.dart';
 import 'package:chatting_app/presentation/customs/custom_splash_screen.dart';
-import 'package:chatting_app/presentation/customs/separate_widgets.dart';
 import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -20,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             textThis: "welcomeSignUp".translateS(context),
             directedPage: NamedRoutes.signUpAge),
         const Gap(20),
-        const SeparateWidgets(),
+        const Divider(),
         const Gap(20),
         GoToButton(
             textThis: "welcomeSignIn".translateS(context),
