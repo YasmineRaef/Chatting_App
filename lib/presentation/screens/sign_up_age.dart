@@ -1,5 +1,6 @@
-import 'package:chatting_app/presentation/customs/go_to_button.dart';
+import 'package:chatting_app/app/app_localizations.dart';
 import 'package:chatting_app/presentation/customs/custom_splash_screen.dart';
+import 'package:chatting_app/presentation/customs/go_to_button.dart';
 import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -12,16 +13,20 @@ class SignInAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSplashScreen(
-        talk: "How old are you",
+        talk: "lettyAge".translateS(context),
         ui: Column(
           children: [
             const Gap(30),
-            const CustomTextField(
-                hint: "Enter your age here", textIcon: Icons.cake),
+            CustomTextField(
+                hint: "age".translateS(context), textIcon: Icons.cake),
             const Gap(20),
-            GoToButton(textThis: "Next", directedPage: NamedRoutes.signUpPhone),
-            Gap(20),
-            GoToButton(textThis: "Back", directedPage: NamedRoutes.splash)
+            GoToButton(
+                textThis: "next".translateS(context),
+                directedPage: NamedRoutes.signUpPhone),
+            const Gap(20),
+            GoToButton(
+                textThis: "back".translateS(context),
+                directedPage: NamedRoutes.splash)
           ],
         ));
   }

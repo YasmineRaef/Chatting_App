@@ -1,3 +1,4 @@
+import 'package:chatting_app/app/app_localizations.dart';
 import 'package:chatting_app/presentation/customs/custom_splash_screen.dart';
 import 'package:chatting_app/presentation/customs/separate_widgets.dart';
 import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
@@ -12,18 +13,18 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSplashScreen(
-      talk: "Hi ! I'm Letty the lettuce",
+      talk: "welcome".translateS(context),
       ui: Column(children: [
         const Gap(70),
         GoToButton(
-            textThis: "New Here? Let's set you up",
+            textThis: "welcomeSignUp".translateS(context),
             directedPage: NamedRoutes.signUpAge),
         const Gap(20),
         const SeparateWidgets(),
         const Gap(20),
         GoToButton(
-            textThis: "Already have an account? Sign in",
-            directedPage: NamedRoutes.signIn)
+            textThis: "welcomeSignIn".translateS(context),
+            directedPage: NamedRoutes.signInOld)
       ]),
     );
   }

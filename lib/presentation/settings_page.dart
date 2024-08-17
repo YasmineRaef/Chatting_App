@@ -1,5 +1,6 @@
-import 'package:chatting_app/presentation/customs/go_to_button.dart';
+import 'package:chatting_app/app/app_localizations.dart';
 import 'package:chatting_app/presentation/customs/custom_page.dart';
+import 'package:chatting_app/presentation/customs/go_to_button.dart';
 import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -28,13 +29,15 @@ class _SettingsPageState extends State<SettingsPage> {
               const Gap(20),
               const LanguageButton(),
               const Gap(50),
-              GoToButton(textThis: "Log Out", directedPage: NamedRoutes.splash)
+              GoToButton(
+                  textThis: "logOut".translateS(context),
+                  directedPage: NamedRoutes.splash)
             ],
           ),
         ),
       ),
       appBarIcon: Icons.arrow_back,
-      pageTitle: "Settings",
+      pageTitle: "settings".translateS(context),
       directedPage: NamedRoutes.home,
     );
   }

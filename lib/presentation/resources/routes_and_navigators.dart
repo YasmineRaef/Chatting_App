@@ -15,7 +15,8 @@ class NamedRoutes {
   static String material = "/material";
   static String home = "/home";
   static String splash = "/splash";
-  static String signIn = "/signIn";
+  static String signInOld = "/signInOld";
+  static String signInNew = "/signInNew";
   static String signUpPass = "/signUpPass";
   static String signUpPhone = "/signUpPhone";
   static String settings = "/settings";
@@ -29,8 +30,11 @@ class GeneratedRoutes {
         GetPage(name: NamedRoutes.home, page: () => const MyHomePage()),
         GetPage(name: NamedRoutes.splash, page: () => const SplashScreen()),
         GetPage(
-            name: NamedRoutes.signIn,
+            name: NamedRoutes.signInOld,
             page: () => const SignIn(newOther: "Welcome Back")),
+        GetPage(
+            name: NamedRoutes.signInNew,
+            page: () => const SignIn(newOther: "Activate your new account")),
         GetPage(
             name: NamedRoutes.signUpPass, page: () => const SignUpPassword()),
         GetPage(name: NamedRoutes.signUpPhone, page: () => const SignUpPhone()),

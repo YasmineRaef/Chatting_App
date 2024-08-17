@@ -5,9 +5,9 @@ class SeparateWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const SizedBox(
       width: 200,
-      child: const Divider(
+      child: Divider(
         color: Colors.grey,
         thickness: 1.5,
       ),
