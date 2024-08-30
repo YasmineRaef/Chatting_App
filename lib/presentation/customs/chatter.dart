@@ -1,4 +1,6 @@
+import 'package:chatting_app/presentation/resources/routes_and_navigators.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Chatter extends StatelessWidget {
   const Chatter({super.key});
@@ -52,7 +54,8 @@ class Chatter extends StatelessWidget {
                             overlayColor:
                                 MaterialStatePropertyAll(Colors.transparent)),
                         onPressed: () {
-                          print("I am clicked");
+                          // print("I am clicked");
+                          Get.offNamed(NamedRoutes.chattingScreen);
                         },
                         child: const Text("1",
                             style: TextStyle(color: Colors.black)),

@@ -1,4 +1,5 @@
 import 'package:chatting_app/presentation/profile_page.dart';
+import 'package:chatting_app/presentation/screens/chatting_screen.dart';
 import 'package:chatting_app/presentation/screens/sign_in.dart';
 import 'package:chatting_app/presentation/screens/sign_up_age.dart';
 import 'package:chatting_app/presentation/screens/sign_up_password.dart';
@@ -22,6 +23,7 @@ class NamedRoutes {
   static String settings = "/settings";
   static String profile = "/profile";
   static String signUpAge = "/signUpAge";
+  static String chattingScreen = "/chattingScreen";
 }
 
 class GeneratedRoutes {
@@ -40,7 +42,10 @@ class GeneratedRoutes {
         GetPage(name: NamedRoutes.signUpPhone, page: () => const SignUpPhone()),
         GetPage(name: NamedRoutes.profile, page: () => const ProfilePage()),
         GetPage(name: NamedRoutes.settings, page: () => const SettingsPage()),
-        GetPage(name: NamedRoutes.signUpAge, page: () => const SignInAge())
+        GetPage(name: NamedRoutes.signUpAge, page: () => const SignInAge()),
+        GetPage(
+            name: NamedRoutes.chattingScreen,
+            page: () => const ChattingScreen())
       ];
 }
 
