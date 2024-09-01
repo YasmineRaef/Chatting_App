@@ -2,7 +2,7 @@
   "appName": "Lettuce Chat",
   "welcome": "Hi ! I'm Letty the lettuce",
   "welcomeSignUp": "New Here? Let's set you up",
-  "welcomeSignIn": "Already have an account? Sign in",
+  "signInWelcome": "Already have an account? Sign in",
   "username": "Enter your username",
   "password": "Enter your password",
   "enter": "Enter",

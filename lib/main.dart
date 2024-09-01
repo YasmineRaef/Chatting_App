@@ -7,8 +7,11 @@ import 'data/get_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await GetStorage.init();
   retrieveData();
-  runApp(const App());
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+  runApp(const ChatApp());
 }
