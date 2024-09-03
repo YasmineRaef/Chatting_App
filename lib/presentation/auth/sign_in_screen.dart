@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../resources/app_routes.dart';
+import '../widgets/buttons.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_text_field.dart';
-import '../widgets/go_to_button.dart';
-import '../resources/app_routes.dart';
 import 'widget/custom_auth_screen.dart';
 
 class SignInScreen extends StatelessWidget {

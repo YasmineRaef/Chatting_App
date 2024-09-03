@@ -18,7 +18,8 @@ class AppTheme {
       ),
 
       //
-      dividerTheme: const DividerThemeData(color: Colors.grey, thickness: 1.5, indent: 80, endIndent: 80),
+      dividerTheme: const DividerThemeData(
+          color: Colors.grey, thickness: 1.5, indent: 80, endIndent: 80),
 
       //
       textTheme: const TextTheme(
@@ -32,11 +33,12 @@ class AppTheme {
 
       // TextFormField
       inputDecorationTheme: const InputDecorationTheme(
-        filled: true,
         prefixIconColor: Colors.black,
-        fillColor: Color.fromRGBO(224, 224, 224, 1),
-        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
-        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.teal), borderRadius: BorderRadius.all(Radius.circular(20))),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.teal),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
       ),
 
       // ElevatedButton
@@ -51,7 +53,9 @@ class AppTheme {
 
       // ListTile
       listTileTheme: const ListTileThemeData(
-        shape: RoundedRectangleBorder(side: BorderSide(color: Colors.teal, width: 2), borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.teal, width: 2),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
       ),
     );
   }
@@ -66,7 +70,8 @@ class AppTheme {
         toolbarHeight: 70,
         backgroundColor: Colors.teal,
       ),
-      dividerTheme: const DividerThemeData(color: Colors.black, thickness: 1, indent: 80, endIndent: 80),
+      dividerTheme: const DividerThemeData(
+          color: Colors.black, thickness: 1, indent: 80, endIndent: 80),
       //
       textTheme: const TextTheme(
         bodySmall: TextStyle(fontSize: 18, color: Colors.black),
@@ -81,8 +86,11 @@ class AppTheme {
         filled: true,
         prefixIconColor: Colors.black,
         fillColor: Color.fromRGBO(224, 224, 224, 1),
-        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
-        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.teal), borderRadius: BorderRadius.all(Radius.circular(20))),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.teal),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
       ),
 
       // ElevatedButton
@@ -97,10 +105,13 @@ class AppTheme {
 
       // ListTile
       listTileTheme: const ListTileThemeData(
-        shape: RoundedRectangleBorder(side: BorderSide(color: Colors.teal, width: 2), borderRadius: BorderRadius.all(Radius.circular(20))),
+        shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.teal, width: 2),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
       ),
     );
   }
 
-  static void changeThemeMode() => Get.changeThemeMode(themeMode = (themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light));
+  static void changeThemeMode() => Get.changeThemeMode(themeMode =
+      (themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light));
 }

@@ -8,9 +8,14 @@ class ChatMessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      decoration:
-          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
-      child: Text(message, textAlign: TextAlign.justify, style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 18)),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(22),
+          border: Border.all(color: Colors.teal.shade300, width: 2)),
+      child: Text(message,
+          textAlign: TextAlign.justify,
+          style:
+              Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 18)),
     );
   }
 }
@@ -25,8 +30,10 @@ class ChatImageBubble extends StatelessWidget {
       width: 100,
       height: 120,
       padding: const EdgeInsets.all(10),
-      decoration:
-          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(22),
+          border: Border.all(color: Colors.teal.shade300, width: 2)),
       child: Image(image: AssetImage(imagePath)),
     );
   }

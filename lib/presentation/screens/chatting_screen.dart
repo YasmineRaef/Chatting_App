@@ -39,7 +39,7 @@ class _ChatBodyState extends State<ChatBody> {
       child: Column(
         children: [
           SizedBox(
-            height: 657,
+            height: 620,
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(10),
@@ -50,7 +50,10 @@ class _ChatBodyState extends State<ChatBody> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        for (int i = 0; i < chat.length; i++) ...[const Gap(10), chat[i]]
+                        for (int i = 0; i < chat.length; i++) ...[
+                          const Gap(10),
+                          chat[i]
+                        ]
                       ],
                     ),
                   ],
@@ -64,13 +67,20 @@ class _ChatBodyState extends State<ChatBody> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                IconButton(onPressed: () {}, highlightColor: Colors.transparent, icon: const Icon(Icons.add, color: Colors.teal)),
+                IconButton(
+                    onPressed: () {},
+                    highlightColor: Colors.transparent,
+                    icon: const Icon(Icons.add, color: Colors.teal)),
                 IconButton(
                   onPressed: () async {
-                    final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.camera);
-                    if (imagePicked != null) addMessage(ChatImageBubble(imagePath: imagePicked.path));
+                    final XFile? imagePicked = await ImagePicker()
+                        .pickImage(source: ImageSource.camera);
+                    if (imagePicked != null) {
+                      addMessage(ChatImageBubble(imagePath: imagePicked.path));
+                    }
                   },
-                  icon: const Icon(Icons.camera_alt_outlined, color: Colors.teal),
+                  icon:
+                      const Icon(Icons.camera_alt_outlined, color: Colors.teal),
                 ),
                 SizedBox(
                   width: 200,
@@ -83,15 +93,21 @@ class _ChatBodyState extends State<ChatBody> {
                       hintText: "Enter your message",
                       contentPadding: EdgeInsets.all(10),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(color: Colors.teal, width: 2)),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(color: Colors.teal, width: 2)),
                     ),
                   ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.send, color: Colors.teal),
-                  onPressed: () => setState(() => {addMessage(ChatMessageBubble(message: _msgController.text)), _msgController.clear()}),
+                  onPressed: () => setState(() => {
+                        addMessage(
+                            ChatMessageBubble(message: _msgController.text)),
+                        _msgController.clear()
+                      }),
                 )
               ],
             ),

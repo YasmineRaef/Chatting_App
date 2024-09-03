@@ -17,11 +17,13 @@ class _ThemeButtonState extends State<ThemeButton> {
     return ListTile(
       trailing: Icon(myState, color: Colors.black),
       onTap: () => setState(() {
-        myState = (myState == Icons.dark_mode ? Icons.light_mode : Icons.dark_mode);
+        myState =
+            (myState == Icons.dark_mode ? Icons.light_mode : Icons.dark_mode);
         box.write('isLight', checkCurrentState(myState));
         AppTheme.changeThemeMode();
       }),
-      title: Text((checkCurrentState(myState) == true ? "dark" : "light").translateS(context)),
+      title: Text((checkCurrentState(myState) == true ? "dark" : "light")
+          .translateS(context)),
     );
   }
 }

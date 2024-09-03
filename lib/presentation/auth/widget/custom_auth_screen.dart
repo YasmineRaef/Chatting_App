@@ -8,7 +8,8 @@ import '../../resources/theme_manager.dart';
 class CustomAuthScreen extends StatelessWidget {
   final String talk;
   final List<Widget> contentWidgets;
-  const CustomAuthScreen({super.key, required this.talk, required this.contentWidgets});
+  const CustomAuthScreen(
+      {super.key, required this.talk, required this.contentWidgets});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,14 @@ class CustomAuthScreen extends StatelessWidget {
               const Gap(20),
               Image(
                 height: 300,
-                image: AppTheme.themeMode == ThemeMode.light ? const AssetImage(AppAssets.lettuceLight) : const AssetImage(AppAssets.lettuceDark),
+                image: AppTheme.themeMode == ThemeMode.light
+                    ? const AssetImage(AppAssets.lettuceLight)
+                    : const AssetImage(AppAssets.lettuceDark),
               ),
               const Gap(20),
-              Text(talk.translateS(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              Text(talk.translateS(context),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold)),
               ...contentWidgets,
             ],
           ),

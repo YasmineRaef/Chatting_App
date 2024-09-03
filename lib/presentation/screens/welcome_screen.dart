@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../auth/widget/custom_auth_screen.dart';
-import '../widgets/custom_divider.dart';
-import '../widgets/go_to_button.dart';
 import '../resources/app_routes.dart';
+import '../widgets/buttons.dart';
+import '../widgets/custom_divider.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -15,9 +15,11 @@ class WelcomeScreen extends StatelessWidget {
       talk: "welcome",
       contentWidgets: [
         Gap(70),
-        GoToButton(text: "welcomeSignUp", directedPage: NamedRoutes.signUpAge),
+        GoToButton(
+            text: "welcomeSignUp", directedPage: NamedRoutes.signUpScreen),
         CustomDivider(20),
-        GoToButton(text: "signInWelcome", directedPage: NamedRoutes.signInScreen)
+        GoToButton(
+            text: "signInWelcome", directedPage: NamedRoutes.signInScreen)
       ],
     );
   }

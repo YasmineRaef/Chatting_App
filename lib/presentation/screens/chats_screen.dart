@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../resources/app_routes.dart';
 import '../widgets/chatter.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_screen.dart';
-import '../resources/app_routes.dart';
 
 class ChatsScreen extends StatelessWidget {
   const ChatsScreen({super.key});
@@ -22,7 +22,9 @@ class ChatsScreen extends StatelessWidget {
           child: Column(
             children: [
               const Gap(20),
-              const TextField(cursorColor: Colors.black, decoration: InputDecoration(prefixIcon: Icon(Icons.search))),
+              const TextField(
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(prefixIcon: Icon(Icons.search))),
               const Gap(20),
               ListView.separated(
                 itemCount: 10,
