@@ -5,7 +5,7 @@ import '../screens/chats_screen.dart';
 import '../screens/chatting_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
-import '../screens/sign_up_screen.dart';
+import '../auth/sign_up_screen.dart';
 import '../screens/welcome_screen.dart';
 
 class NamedRoutes {
