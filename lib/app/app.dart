@@ -14,14 +14,14 @@ class ChatApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //
-      themeMode: AppTheme.themeMode,
       theme: AppTheme.getLightTheme(),
       darkTheme: AppTheme.getDarkTheme(),
+      themeMode: Storage.getAppThemeMode(),
       //
       getPages: GeneratedRoutes.getRoute(),
       initialRoute: NamedRoutes.welcomeScreen,
       //
-      locale: myLocale,
+      locale: Get.locale,
       localizationsDelegates: localizationDelegates,
       localeResolutionCallback: localResolutionCallback,
       supportedLocales: const [Locale('en'), Locale('ar')],

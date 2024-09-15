@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../data/get_storage.dart';
 
 class AppTheme {
-  static ThemeMode themeMode = currentThemeMode;
-
-  static bool get isLightMode => AppTheme.themeMode == ThemeMode.light;
-
   static ThemeData getLightTheme() {
     return ThemeData(
       scaffoldBackgroundColor: const Color.fromRGBO(230, 225, 210, 1),
@@ -101,6 +94,4 @@ class AppTheme {
       ),
     );
   }
-
-  static void changeThemeMode() => Get.changeThemeMode(themeMode = (themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light));
 }

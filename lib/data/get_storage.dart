@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-final box = GetStorage();
-late Locale myLocale;
-late IconData myState;
-late ThemeMode currentThemeMode;
-late bool isEnglish;
-late bool isLight;
+const String _isDarkModeKey = "IS_DARK_MODE_KEY";
+const String _languageCodeKey = "LANGUAGE_CODE_KEY";
 
-void retrieveData() {
-  box.read('isEnglish') == false
-      ? myLocale = const Locale('ar')
-      : myLocale = const Locale('en');
-  if (box.read('isLight') == false) {
-    myState = Icons.light_mode;
-    currentThemeMode = ThemeMode.dark;
-  } else {
-    myState = Icons.dark_mode;
-    currentThemeMode = ThemeMode.light;
+class Storage {
+  Storage._();
+
+  static final GetStorage _storage = GetStorage();
+
+  static bool isDarkMode() => _storage.read(_isDarkModeKey) ?? false;
+
+  static String getAppLanguageCode() => _storage.read(_languageCodeKey) ?? "en";
+
+  static ThemeMode getAppThemeMode() => isDarkMode() ? ThemeMode.dark : ThemeMode.light;
+
+  static void toggleAppLanguageCode() {
+    Get.updateLocale(Locale(getAppLanguageCode() == "en" ? "ar" : "en"));
+    _storage.write(_languageCodeKey, getAppLanguageCode() == "en" ? "ar" : "en");
+  }
+
+  static void toggleAppThemeMode() {
+    Get.changeThemeMode(isDarkMode() ? ThemeMode.light : ThemeMode.dark);
+    _storage.write(_isDarkModeKey, !isDarkMode());
   }
 }

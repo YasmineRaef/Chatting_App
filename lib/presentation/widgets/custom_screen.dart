@@ -10,12 +10,7 @@ class CustomScreen extends StatelessWidget {
   final Widget contentBody;
   final IconData appBarIcon;
   final String directedPage;
-  const CustomScreen(
-      {super.key,
-      required this.contentBody,
-      required this.appBarIcon,
-      required this.pageTitle,
-      required this.directedPage});
+  const CustomScreen({super.key, required this.contentBody, required this.appBarIcon, required this.pageTitle, required this.directedPage});
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +22,15 @@ class CustomScreen extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(pageTitle.translateS(context),
-          style: Theme.of(context).textTheme.bodySmall),
-      leading: IconButton(
-          onPressed: () => Get.offNamed(directedPage),
-          icon: Icon(appBarIcon, color: Theme.of(context).iconTheme.color)),
+      title: Text(Tr(pageTitle).tr(context), style: Theme.of(context).textTheme.bodySmall),
+      leading: IconButton(onPressed: () => Get.offNamed(directedPage), icon: Icon(appBarIcon, color: Theme.of(context).iconTheme.color)),
       actions: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: InkWell(
             highlightColor: Colors.transparent,
             onTap: () => Get.offNamed(NamedRoutes.profileScreen),
-            child: const CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage(AppAssets.lettuceLight)),
+            child: const CircleAvatar(radius: 25, backgroundImage: AssetImage(AppAssets.lettuceLight)),
           ),
         )
       ],

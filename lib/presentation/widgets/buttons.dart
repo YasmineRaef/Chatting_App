@@ -20,7 +20,7 @@ class GoToButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () => Get.offNamed(directedPage, arguments: _manageSignIn()),
-      child: Text(text.translateS(context), style: Theme.of(context).textTheme.bodySmall),
+      child: Text(Tr(text).tr(context), style: Theme.of(context).textTheme.bodySmall),
     );
   }
 }

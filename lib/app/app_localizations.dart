@@ -3,38 +3,28 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-
-import '../data/get_storage.dart';
 
 class AppLocalizations {
   final Locale? locale;
+  late Map<String, String> _localizedStrings;
 
   AppLocalizations({this.locale});
 
-  static AppLocalizations? of(BuildContext context) =>
-      Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
-
-  late Map<String, String> _localizedStrings;
+  static AppLocalizations? of(BuildContext context) => Localizations.of<AppLocalizations>(context, AppLocalizations);
 
   Future loadJsonLanguage() async {
-    String jsonString =
-        await rootBundle.loadString("assets/lang/${locale!.languageCode}.json");
+    String jsonString = await rootBundle.loadString("assets/lang/${locale!.languageCode}.json");
 
     Map<String, dynamic> jsonMap = json.decode(jsonString);
-    _localizedStrings =
-        jsonMap.map((key, value) => MapEntry(key, value.toString()));
+    _localizedStrings = jsonMap.map((key, value) => MapEntry(key, value.toString()));
   }
 
   String translate(String key) => _localizedStrings[key] ?? key;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -48,8 +38,7 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) =>
-      false;
+  bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) => false;
 }
 
 Iterable<LocalizationsDelegate<dynamic>> localizationDelegates = const [
@@ -61,19 +50,13 @@ Iterable<LocalizationsDelegate<dynamic>> localizationDelegates = const [
 
 Locale? localResolutionCallback(deviceLocale, supportedLocales) {
   for (var locale in supportedLocales) {
-    if (deviceLocale != null &&
-        deviceLocale.languageCode == locale.languageCode) {
+    if (deviceLocale != null && deviceLocale.languageCode == locale.languageCode) {
       return deviceLocale;
     }
   }
   return supportedLocales.first;
 }
 
-extension TranslateString on String {
-  String translateS(BuildContext context) =>
-      AppLocalizations.of(context)!.translate(this);
+extension Tr on String {
+  String tr(BuildContext context) => AppLocalizations.of(context)!.translate(this);
 }
-
-bool checkCurrentLocale() => myLocale == const Locale('en');
-
-void changeLocal(Locale myLocale) => Get.updateLocale(myLocale);

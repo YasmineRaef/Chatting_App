@@ -5,8 +5,7 @@ import '../../app/app_localizations.dart';
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final IconData textIcon;
-  const CustomTextField(
-      {super.key, required this.hintText, required this.textIcon});
+  const CustomTextField({super.key, required this.hintText, required this.textIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.teal, width: 2),
-        borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
       ),
       child: Center(
         child: TextField(
@@ -26,7 +24,7 @@ class CustomTextField extends StatelessWidget {
             border: InputBorder.none,
             fillColor: Colors.grey.shade200,
             iconColor: Colors.grey.shade800,
-            hintText: hintText.translateS(context),
+            hintText: hintText.tr(context),
             contentPadding: const EdgeInsets.all(5),
           ),
         ),
