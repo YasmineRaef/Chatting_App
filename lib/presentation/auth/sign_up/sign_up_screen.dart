@@ -17,13 +17,15 @@ class SignUpScreen extends GetView<SignUpController> {
     return Scaffold(
       body: PageView.builder(
         controller: controller.pageController,
-        itemCount: controller.signUpData.length,
+        itemCount: controller.signUpData.length, //3
+        physics: const NeverScrollableScrollPhysics(), // prevent user from scrolling on screen
         itemBuilder: (_, index) => SingleChildScrollView(
           child: Column(
             children: [
               const Gap(20),
               Image(height: 300, image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
               const Gap(20),
+              //Title
               Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               const Gap(30),
 

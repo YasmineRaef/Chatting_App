@@ -25,26 +25,18 @@ class ProfileScreen extends StatelessWidget {
                 CircleAvatar(
                   radius: 85,
                   backgroundColor: Colors.teal,
-                  child: CircleAvatar(
-                      radius: 80,
-                      foregroundImage: AssetImage(AppAssets.lettuceLight)),
+                  child: CircleAvatar(radius: 80, foregroundImage: AssetImage(AppAssets.lettuceLight)),
                 ),
                 Gap(40),
-                CustomTextField(
-                    hintText: "Yasmine Raef Mohamed", textIcon: Icons.abc),
+                CustomTextField(hintText: "Yasmine Raef Mohamed", textIcon: Icons.abc),
                 Gap(20),
-                CustomTextField(
-                    hintText: "+1 (929) 739-8937", textIcon: Icons.numbers),
+                CustomTextField(hintText: "+1 (929) 739-8937", textIcon: Icons.numbers),
                 Gap(20),
                 CustomTextField(hintText: "01/01/2004", textIcon: Icons.cake),
                 Gap(40),
-                GoToButton(
-                    text: "profileSave",
-                    directedPage: NamedRoutes.profileScreen),
+                GoToButton(text: "profileSave", directedPage: NamedRoutes.profileScreen),
                 Gap(20),
-                GoToButton(
-                    text: "profileDelete",
-                    directedPage: NamedRoutes.welcomeScreen)
+                GoToButton(text: "profileDelete", directedPage: NamedRoutes.welcomeScreen)
               ],
             ),
           ),

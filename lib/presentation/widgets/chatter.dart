@@ -18,8 +18,7 @@ class Chatter extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
-          borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+          borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,9 +27,7 @@ class Chatter extends StatelessWidget {
             const CircleAvatar(
               radius: 24,
               backgroundColor: AppColors.teal700,
-              child: CircleAvatar(
-                  radius: 22,
-                  backgroundImage: AssetImage(AppAssets.lettuceProfile)),
+              child: CircleAvatar(radius: 22, backgroundImage: AssetImage(AppAssets.lettuceProfile)),
             ),
             const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,8 +36,7 @@ class Chatter extends StatelessWidget {
                 // Username
                 Text("Yasmine Raef", style: TextStyle(fontSize: 18)),
                 // Last Message
-                Text("5 minutes to doorknock 😎",
-                    style: TextStyle(fontSize: 15)),
+                Text("5 minutes to doorknock 😎", style: TextStyle(fontSize: 15)),
               ],
             ),
             Column(
@@ -53,11 +49,8 @@ class Chatter extends StatelessWidget {
                   width: 30,
                   height: 30,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(50)),
-                  child: const Text("1",
-                      style: TextStyle(color: Colors.black, fontSize: 15)),
+                  decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(50)),
+                  child: const Text("1", style: TextStyle(color: Colors.black, fontSize: 15)),
                 )
               ],
             )
