@@ -15,11 +15,9 @@ class WelcomeScreen extends StatelessWidget {
       talk: "welcome",
       contentWidgets: [
         Gap(70),
-        GoToButton(
-            text: "welcomeSignUp", directedPage: NamedRoutes.signUpScreen),
+        GoToButton(text: "welcomeSignUp", directedPage: NamedRoutes.signUpScreen),
         CustomDivider(20),
-        GoToButton(
-            text: "signInWelcome", directedPage: NamedRoutes.signInScreen)
+        GoToButton(text: "signInWelcome", directedPage: NamedRoutes.signInScreen)
       ],
     );
   }

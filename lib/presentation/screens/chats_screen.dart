@@ -18,13 +18,11 @@ class ChatsScreen extends StatelessWidget {
       //
       contentBody: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const Gap(20),
-              const TextField(
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(prefixIcon: Icon(Icons.search))),
+              const Gap(10),
+              const TextField(cursorColor: Colors.black, decoration: InputDecoration(prefixIcon: Icon(Icons.search))),
               const Gap(20),
               ListView.separated(
                 itemCount: 10,

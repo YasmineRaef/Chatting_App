@@ -1,12 +1,13 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:image_picker/image_picker.dart';
 
-import '../../data/chat_list.dart';
+import '../../data/chat_lists.dart';
 import '../resources/app_routes.dart';
 import '../widgets/chat_bubbles.dart';
 import '../widgets/custom_screen.dart';
+import '../widgets/menu_button.dart';
 
 class ChattingScreen extends StatelessWidget {
   const ChattingScreen({super.key});
@@ -17,7 +18,6 @@ class ChattingScreen extends StatelessWidget {
       pageTitle: "Yasmine Raef",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
-      //
       contentBody: ChatBody(),
     );
   }
@@ -31,15 +31,36 @@ class ChatBody extends StatefulWidget {
 }
 
 class _ChatBodyState extends State<ChatBody> {
-  static final _msgController = TextEditingController();
+  final TextEditingController _msgController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
+  bool _showEmojiPicker = false;
+
+  @override
+  void dispose() {
+    _msgController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 620,
+        Expanded(
           child: SingleChildScrollView(
+            controller: _scrollController,
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
@@ -68,21 +89,29 @@ class _ChatBodyState extends State<ChatBody> {
             ),
           ),
         ),
+        if (_showEmojiPicker)
+          SizedBox(
+            height: 250,
+            child: EmojiPicker(
+              onEmojiSelected: (category, emoji) {
+                _msgController.text += emoji.emoji;
+              },
+            ),
+          ),
         SizedBox(
-          height: 80,
+          height: 75,
           width: double.maxFinite,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(onPressed: () {}, highlightColor: Colors.transparent, icon: const Icon(Icons.add, color: Colors.teal)),
+              const MenuButton(),
               IconButton(
-                onPressed: () async {
-                  final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.camera);
-                  if (imagePicked != null) {
-                    addMessage(ChatImageBubble(imagePath: imagePicked.path));
-                  }
+                onPressed: () {
+                  setState(() {
+                    _showEmojiPicker = !_showEmojiPicker;
+                  });
                 },
-                icon: const Icon(Icons.camera_alt_outlined, color: Colors.teal),
+                icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
               ),
               SizedBox(
                 width: 200,
@@ -94,20 +123,23 @@ class _ChatBodyState extends State<ChatBody> {
                     filled: false,
                     hintText: "Enter your message",
                     contentPadding: EdgeInsets.all(10),
-                    border:
-                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
-                    focusedBorder:
-                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
                   ),
                 ),
               ),
               IconButton(
                 icon: const Icon(Icons.send, color: Colors.teal),
-                onPressed: () => setState(() {
-                  addMessage(ChatMessageBubble(message: _msgController.text));
-                  _msgController.clear();
-                }),
-              )
+                onPressed: () {
+                  setState(() {
+                    addMessage(ChatMessageBubble(message: _msgController.text));
+                    _msgController.clear();
+                  });
+                  _scrollToBottom();
+                },
+              ),
             ],
           ),
         ),

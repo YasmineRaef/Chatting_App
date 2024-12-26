@@ -6,6 +6,5 @@ class CustomDivider extends StatelessWidget {
   const CustomDivider([this.gap = 10, Key? key]) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      Column(children: [Gap(gap), const Divider(), Gap(gap)]);
+  Widget build(BuildContext context) => Column(children: [Gap(gap), const Divider(), Gap(gap)]);
 }

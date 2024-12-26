@@ -26,5 +26,6 @@
   "profileSave": "Save changes",
   "profileDelete": "Delete Account",
   "Welcome Back": "Welcome Back",
-  "Activate your new account": "Activate your new account"
+  "Activate your new account": "Activate your new account",
+  "signIn": "Sign In"
 }
