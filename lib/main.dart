@@ -9,7 +9,7 @@ void main() async {
 
   await GetStorage.init();
 
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   runApp(const ChatApp());
 }

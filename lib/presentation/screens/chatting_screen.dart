@@ -103,7 +103,10 @@ class _ChatBodyState extends State<ChatBody> {
               ),
               IconButton(
                 icon: const Icon(Icons.send, color: Colors.teal),
-                onPressed: () => setState(() => {addMessage(ChatMessageBubble(message: _msgController.text)), _msgController.clear()}),
+                onPressed: () => setState(() {
+                  addMessage(ChatMessageBubble(message: _msgController.text));
+                  _msgController.clear();
+                }),
               )
             ],
           ),
