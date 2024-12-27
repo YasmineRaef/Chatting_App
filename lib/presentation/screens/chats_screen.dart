@@ -15,7 +15,6 @@ class ChatsScreen extends StatelessWidget {
       pageTitle: "appName",
       appBarIcon: Icons.settings,
       directedPage: NamedRoutes.settingsScreen,
-      //
       contentBody: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),

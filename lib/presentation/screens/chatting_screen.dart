@@ -31,9 +31,9 @@ class ChatBody extends StatefulWidget {
 }
 
 class _ChatBodyState extends State<ChatBody> {
-  final TextEditingController _msgController = TextEditingController();
-  final ScrollController _scrollController = ScrollController();
   bool _showEmojiPicker = false;
+  final _scrollController = ScrollController();
+  final _msgController = TextEditingController();
 
   @override
   void dispose() {
@@ -45,11 +45,7 @@ class _ChatBodyState extends State<ChatBody> {
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        );
+        _scrollController.animateTo(_scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
       }
     });
   }
@@ -92,11 +88,7 @@ class _ChatBodyState extends State<ChatBody> {
         if (_showEmojiPicker)
           SizedBox(
             height: 250,
-            child: EmojiPicker(
-              onEmojiSelected: (category, emoji) {
-                _msgController.text += emoji.emoji;
-              },
-            ),
+            child: EmojiPicker(onEmojiSelected: (category, emoji) => _msgController.text += emoji.emoji),
           ),
         SizedBox(
           height: 75,
@@ -106,12 +98,8 @@ class _ChatBodyState extends State<ChatBody> {
             children: [
               const MenuButton(),
               IconButton(
-                onPressed: () {
-                  setState(() {
-                    _showEmojiPicker = !_showEmojiPicker;
-                  });
-                },
                 icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
+                onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
               ),
               SizedBox(
                 width: 200,
@@ -123,10 +111,10 @@ class _ChatBodyState extends State<ChatBody> {
                     filled: false,
                     hintText: "Enter your message",
                     contentPadding: EdgeInsets.all(10),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                    border:
+                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+                    focusedBorder:
+                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
                   ),
                 ),
               ),

@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
     return const CustomScreen(
       pageTitle: "profile",
       appBarIcon: Icons.arrow_back,
-      directedPage: NamedRoutes.chatsScreen, // It's Clear
+      directedPage: NamedRoutes.chatsScreen,
       contentBody: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(10),

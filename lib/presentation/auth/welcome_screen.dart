@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../auth/widget/custom_auth_screen.dart';
+import 'widget/custom_auth_screen.dart';
 import '../resources/app_routes.dart';
 import '../widgets/buttons.dart';
 import '../widgets/custom_divider.dart';

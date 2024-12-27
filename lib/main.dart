@@ -6,10 +6,8 @@ import 'app/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await GetStorage.init();
-
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
+  await GetStorage.init();
   runApp(const ChatApp());
 }

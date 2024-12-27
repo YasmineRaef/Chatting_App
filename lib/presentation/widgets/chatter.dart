@@ -10,52 +10,20 @@ class Chatter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 10),
       onTap: () => Get.offNamed(NamedRoutes.chattingScreen),
-      child: Container(
-        height: 80,
-        width: 370,
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // User Profile Picture
-            const CircleAvatar(
-              radius: 24,
-              backgroundColor: AppColors.teal700,
-              child: CircleAvatar(radius: 22, backgroundImage: AssetImage(AppAssets.lettuceProfile)),
-            ),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // Username
-                Text("Yasmine Raef", style: TextStyle(fontSize: 18)),
-                // Last Message
-                Text("5 minutes to doorknock 😎", style: TextStyle(fontSize: 15)),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // Last Message Time
-                const Text("12:58 PM", style: TextStyle(fontSize: 12)),
-                // Number of Unread Messages
-                Container(
-                  width: 30,
-                  height: 30,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(50)),
-                  child: const Text("1", style: TextStyle(color: Colors.black, fontSize: 15)),
-                )
-              ],
-            )
-          ],
-        ),
+      title: Text("Yasmine Raef", style: TextStyle(fontSize: 18)),
+      subtitle: Text("5 minutes to doorknock 😎", style: TextStyle(fontSize: 15)),
+      shape: OutlineInputBorder(borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),
+      leading: const CircleAvatar(
+          radius: 24, backgroundColor: AppColors.teal700, child: CircleAvatar(radius: 22, backgroundImage: AssetImage(AppAssets.lettuceProfile))),
+      trailing: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          const Text("12:58 PM", style: TextStyle(fontSize: 12)),
+          CircleAvatar(radius: 15, backgroundColor: Colors.amber, child: const Text("1", style: TextStyle(color: Colors.black, fontSize: 15)))
+        ],
       ),
     );
   }

@@ -10,21 +10,22 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          showPopover(
-            backgroundColor: Colors.teal,
-            shadow: List.empty(),
-            context: context,
-            bodyBuilder: (context) => const MenuItems(),
-            direction: PopoverDirection.bottom,
-            width: 200,
-            height: 200,
-            arrowHeight: 0,
-            transitionDuration: const Duration(milliseconds: 300),
-          );
-        },
-        highlightColor: Colors.transparent,
-        icon: const Icon(Icons.add, color: Colors.teal));
+      onPressed: () {
+        showPopover(
+          width: 200,
+          height: 200,
+          arrowHeight: 0,
+          context: context,
+          shadow: List.empty(),
+          backgroundColor: Colors.teal,
+          direction: PopoverDirection.bottom,
+          bodyBuilder: (_) => const MenuItems(),
+          transitionDuration: const Duration(milliseconds: 300),
+        );
+      },
+      highlightColor: Colors.transparent,
+      icon: const Icon(Icons.add, color: Colors.teal),
+    );
   }
 }
 
@@ -33,7 +34,7 @@ class MenuItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

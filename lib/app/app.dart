@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../data/get_storage.dart';
 import '../presentation/resources/app_routes.dart';
-import '../presentation/resources/theme_manager.dart';
+import '../presentation/resources/app_theme.dart';
 import 'app_localizations.dart';
 
 class ChatApp extends StatelessWidget {

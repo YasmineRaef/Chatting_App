@@ -9,25 +9,11 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.teal, width: 2),
-        borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
-      ),
-      child: Center(
-        child: TextField(
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            icon: Icon(textIcon),
-            border: InputBorder.none,
-            fillColor: Colors.grey.shade200,
-            iconColor: Colors.grey.shade800,
-            hintText: hintText.tr(context),
-            contentPadding: const EdgeInsets.all(5),
-          ),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: TextFormField(
+        cursorColor: Colors.black,
+        decoration: InputDecoration(prefixIcon: Icon(textIcon), hintText: hintText.tr(context)),
       ),
     );
   }

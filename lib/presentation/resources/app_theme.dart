@@ -12,27 +12,35 @@ class AppTheme {
         backgroundColor: Colors.teal,
       ),
 
-      //
       dividerTheme: const DividerThemeData(color: Colors.grey, thickness: 1.5, indent: 80, endIndent: 80),
 
-      //
       textTheme: const TextTheme(
         bodySmall: TextStyle(fontSize: 18, color: Colors.white),
         bodyMedium: TextStyle(fontSize: 20),
         bodyLarge: TextStyle(fontSize: 24, color: Colors.white),
       ),
 
-      //
       iconTheme: const IconThemeData(color: Colors.white),
 
       // TextFormField
       inputDecorationTheme: const InputDecorationTheme(
-        prefixIconColor: Colors.black,
-        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
-        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.teal), borderRadius: BorderRadius.all(Radius.circular(20))),
+        contentPadding: EdgeInsets.all(10),
+        fillColor: Color.fromRGBO(238, 238, 238, 1),
+        prefixIconColor: Color.fromRGBO(66, 66, 66, 1),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.teal, width: 2),
+          borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.teal, width: 2),
+          borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.teal, width: 2),
+          borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        ),
       ),
 
-      // ElevatedButton
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(300, 50),
@@ -42,7 +50,6 @@ class AppTheme {
         ),
       ),
 
-      // ListTile
       listTileTheme: const ListTileThemeData(
         shape: RoundedRectangleBorder(side: BorderSide(color: Colors.teal, width: 2), borderRadius: BorderRadius.all(Radius.circular(20))),
       ),

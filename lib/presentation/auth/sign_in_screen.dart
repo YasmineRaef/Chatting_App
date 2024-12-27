@@ -17,7 +17,7 @@ class SignInScreen extends StatelessWidget {
       talk: isNewMember ? "Activate your new account" : "Welcome Back",
       contentWidgets: const [
         Gap(30),
-        CustomTextField(hintText: "username", textIcon: Icons.abc),
+        CustomTextField(hintText: "username", textIcon: Icons.person),
         CustomDivider(),
         CustomTextField(hintText: "password", textIcon: Icons.remove_red_eye),
         Gap(30),

@@ -13,15 +13,11 @@ class CustomAuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              const Gap(20),
-              Image(
-                height: 300,
-                image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight),
-              ),
+              Image(height: 300, image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
               const Gap(20),
               Text(talk.tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               ...contentWidgets,

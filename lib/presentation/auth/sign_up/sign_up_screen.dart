@@ -17,31 +17,32 @@ class SignUpScreen extends GetView<SignUpController> {
     return Scaffold(
       body: PageView.builder(
         controller: controller.pageController,
-        itemCount: controller.signUpData.length, //3
-        physics: const NeverScrollableScrollPhysics(), // prevent user from scrolling on screen
-        itemBuilder: (_, index) => SingleChildScrollView(
-          child: Column(
-            children: [
-              const Gap(20),
-              Image(height: 300, image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
-              const Gap(20),
-              //Title
-              Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              const Gap(30),
+        itemCount: controller.signUpData.length,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (_, index) => Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Gap(20),
+                Image(height: 300, image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
+                const Gap(20),
+                Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const Gap(30),
 
-              // TextFields
-              for (int i = 0; i < controller.signUpData[index].length; ++i) ...[
-                CustomTextField(hintText: controller.signUpData[index][i].hintText, textIcon: controller.signUpData[index][i].icon),
-                i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
+                // TextFields
+                for (int i = 0; i < controller.signUpData[index].length; ++i) ...[
+                  CustomTextField(hintText: controller.signUpData[index][i].hintText, textIcon: controller.signUpData[index][i].icon),
+                  i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
+                ],
+                const Gap(30),
+
+                // Next & Back Buttons
+                ElevatedButton(
+                    onPressed: controller.goNextPage, child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context))),
+                const Gap(20),
+                ElevatedButton(onPressed: controller.goPreviousPage, child: Text("back".tr(context)))
               ],
-              const Gap(30),
-
-              // Next & Back Buttons
-              ElevatedButton(
-                  onPressed: controller.goNextPage, child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context))),
-              const Gap(20),
-              ElevatedButton(onPressed: controller.goPreviousPage, child: Text("back".tr(context)))
-            ],
+            ),
           ),
         ),
       ),
