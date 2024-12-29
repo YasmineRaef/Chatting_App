@@ -12,8 +12,8 @@ class MenuButton extends StatelessWidget {
     return IconButton(
       onPressed: () {
         showPopover(
-          width: 200,
-          height: 200,
+          width: MediaQuery.of(context).size.width * 0.55,
+          height: MediaQuery.of(context).size.height * 0.3,
           arrowHeight: 0,
           context: context,
           shadow: List.empty(),

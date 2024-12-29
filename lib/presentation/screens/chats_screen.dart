@@ -5,6 +5,7 @@ import '../resources/app_routes.dart';
 import '../widgets/chatter.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_screen.dart';
+import '../widgets/search_box.dart';
 
 class ChatsScreen extends StatelessWidget {
   // final List<Chat> chats;
@@ -30,8 +31,8 @@ class ChatsScreen extends StatelessWidget {
           child: Column(
             children: [
               const Gap(10),
-              const TextField(cursorColor: Colors.black, decoration: InputDecoration(prefixIcon: Icon(Icons.search))),
-              const Gap(20),
+              const SearchBox(),
+              const Gap(35),
               ListView.separated(
                 itemCount: 10,
                 shrinkWrap: true,

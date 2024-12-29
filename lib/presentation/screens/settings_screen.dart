@@ -12,7 +12,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScreen(
+    return CustomScreen(
       pageTitle: "settings",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
@@ -23,9 +23,15 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Gap(50),
-              ThemeButton(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: ThemeButton(),
+              ),
               Gap(20),
-              LanguageButton(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.85,
+                child: LanguageButton(),
+              ),
               Gap(50),
               GoToButton(text: "logOut", directedPage: NamedRoutes.welcomeScreen)
             ],

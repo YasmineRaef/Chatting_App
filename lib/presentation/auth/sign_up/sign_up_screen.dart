@@ -24,16 +24,20 @@ class SignUpScreen extends GetView<SignUpController> {
             child: Column(
               children: [
                 const Gap(20),
-                Image(height: 300, image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
+                Image(
+                    height: MediaQuery.of(context).size.height * 0.39,
+                    image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
                 const Gap(20),
                 Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const Gap(30),
                 for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
                 const Gap(30),
                 ElevatedButton(
-                    onPressed: controller.goNextPage, child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context))),
+                    onPressed: controller.goNextPage,
+                    child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context),
+                        style: Theme.of(context).textTheme.bodySmall)),
                 const Gap(20),
-                ElevatedButton(onPressed: controller.goPreviousPage, child: Text("back".tr(context)))
+                ElevatedButton(onPressed: controller.goPreviousPage, child: Text("back".tr(context), style: Theme.of(context).textTheme.bodySmall))
               ],
             ),
           ),

@@ -102,12 +102,13 @@ class _ChatBodyState extends State<ChatBody> {
                 onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
               ),
               SizedBox(
-                width: 200,
-                height: 50,
+                width: MediaQuery.of(context).size.width * 0.5,
                 child: TextField(
                   controller: _msgController,
                   cursorColor: Colors.black,
-                  decoration: const InputDecoration(
+                  cursorHeight: 18,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                  decoration: InputDecoration(
                     filled: false,
                     hintText: "Enter your message",
                     contentPadding: EdgeInsets.all(10),

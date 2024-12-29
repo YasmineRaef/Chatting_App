@@ -2,11 +2,11 @@ import 'package:get/get.dart';
 
 import '../auth/sign_in_screen.dart';
 import '../auth/sign_up/sign_up_screen.dart';
+import '../auth/welcome_screen.dart';
 import '../screens/chats_screen.dart';
 import '../screens/chatting_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/settings_screen.dart';
-import '../auth/welcome_screen.dart';
 import 'app_bindings.dart';
 
 class NamedRoutes {
