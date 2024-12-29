@@ -19,8 +19,8 @@ class GoToButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      child: Text(Tr(text).tr(context), textAlign: TextAlign.center),
       onPressed: () => Get.offNamed(directedPage, arguments: _manageSignIn()),
-      child: Text(Tr(text).tr(context), textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodySmall),
     );
   }
 }

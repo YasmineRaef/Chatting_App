@@ -27,8 +27,7 @@ class CustomScreen extends StatelessWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: InkWell(
-            highlightColor: Colors.transparent,
+          child: GestureDetector(
             onTap: () => Get.offNamed(NamedRoutes.profileScreen),
             child: const CircleAvatar(radius: 25, backgroundImage: AssetImage(AppAssets.lettuceLight)),
           ),

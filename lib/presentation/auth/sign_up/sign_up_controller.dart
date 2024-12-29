@@ -1,4 +1,3 @@
-// Temporary Class
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +7,9 @@ class SignUpController extends GetxController {
   static late int _currentIndex;
   static late PageController _pageController;
 
-  SignUpData get signUpData => _signUpData;
   List<String> get pagesTitle => _pagesTitle;
   PageController get pageController => _pageController;
+  List<List<({String hintText, IconData icon})>> get signUpData => _signUpData;
 
   @override
   void onClose() => {_pageController.dispose(), super.onClose()};
@@ -20,9 +19,9 @@ class SignUpController extends GetxController {
 
   static final List<String> _pagesTitle = ["lettyAge", "lettyPhone", "lettyPassword"];
 
-  static const SignUpData _signUpData = [
+  static const List<List<({String hintText, IconData icon})>> _signUpData = [
     [(hintText: "age", icon: Icons.cake)],
-    [(hintText: "name", icon: Icons.abc), (hintText: "phone", icon: Icons.numbers)],
+    [(hintText: "name", icon: Icons.person), (hintText: "phone", icon: Icons.phone)],
     [(hintText: "createPass", icon: Icons.remove_red_eye), (hintText: "confirmPass", icon: Icons.remove_red_eye)],
   ];
 
@@ -36,5 +35,3 @@ class SignUpController extends GetxController {
     _pageController.previousPage(duration: const Duration(seconds: 1), curve: Curves.ease);
   }
 }
-
-typedef SignUpData = List<List<({String hintText, IconData icon})>>;

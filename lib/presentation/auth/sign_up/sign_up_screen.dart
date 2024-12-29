@@ -28,15 +28,8 @@ class SignUpScreen extends GetView<SignUpController> {
                 const Gap(20),
                 Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const Gap(30),
-
-                // TextFields
-                for (int i = 0; i < controller.signUpData[index].length; ++i) ...[
-                  CustomTextField(hintText: controller.signUpData[index][i].hintText, textIcon: controller.signUpData[index][i].icon),
-                  i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
-                ],
+                for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
                 const Gap(30),
-
-                // Next & Back Buttons
                 ElevatedButton(
                     onPressed: controller.goNextPage, child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context))),
                 const Gap(20),
@@ -47,5 +40,12 @@ class SignUpScreen extends GetView<SignUpController> {
         ),
       ),
     );
+  }
+
+  List<Widget> _buildFormFields(int index, int i) {
+    return [
+      CustomTextField(hintText: controller.signUpData[index][i].hintText, textIcon: controller.signUpData[index][i].icon),
+      i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
+    ];
   }
 }

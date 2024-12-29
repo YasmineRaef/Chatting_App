@@ -7,6 +7,15 @@ import '../widgets/custom_divider.dart';
 import '../widgets/custom_screen.dart';
 
 class ChatsScreen extends StatelessWidget {
+  // final List<Chat> chats;
+  /*
+    Chat Class:
+    String contactName 
+    int unreadMessages
+    String contactLastMessage
+    String contactProfilePicture
+    String || DateTime lastMessageTime
+  */
   const ChatsScreen({super.key});
 
   @override
@@ -17,7 +26,7 @@ class ChatsScreen extends StatelessWidget {
       directedPage: NamedRoutes.settingsScreen,
       contentBody: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
               const Gap(10),
