@@ -22,7 +22,7 @@ class CustomScreen extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(Tr(pageTitle).tr(context), style: Theme.of(context).textTheme.bodySmall),
+      title: Text(Tr(pageTitle).tr(context), style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 20)),
       leading: IconButton(onPressed: () => Get.offNamed(directedPage), icon: Icon(appBarIcon, color: Theme.of(context).iconTheme.color)),
       actions: [
         Padding(

@@ -9,13 +9,17 @@ List msgSent = [
   const ChatMessageBubble(message: "Hi"),
   const ChatImageBubble(imagePath: AppAssets.lettuceProfile),
   const ChatMessageBubble(message: "Nice to meet you too!!"),
+  ChatContactBubble(
+    imagePath: 'assets/images/profile_lettuce.jpg',
+    contactName: 'Yasmine Raef',
+    contactNumber: '(929) 739-8937',
+  )
 ];
 
 List msgGot = [
   const ChatMessageBubble(message: "Hello!!"),
   const ChatImageBubble(imagePath: AppAssets.lettuceProfile),
-  const ChatMessageBubble(message: "Nice to meet you!!"),
-  const ChatMessageBubble(message: "Hello i am happy that it did work but with the row nested in another row not as we wanted using a wrap widget")
+  const ChatMessageBubble(message: "Nice to meet you!!")
 ];
 
 void addMessage(Widget value) => msgSent.add(value);
@@ -25,20 +29,22 @@ List<String> menuTitles = ["Camera", "Gallery", "Add Contact"];
 List<Function> menuFunctions = [
   () async {
     final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.camera);
+    //Should add ChatImageBubble here with image Path from camera pic
     if (imagePicked != null) {
       addMessage(ChatImageBubble(imagePath: imagePicked.path));
     }
   },
   () async {
     final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.gallery);
+    //Should add ChatImageBubble here with image Path
     if (imagePicked != null) {
       addMessage(ChatImageBubble(imagePath: imagePicked.path));
     }
   },
-  //This function for picking contacts from device
   () async {
     if (await FlutterContacts.requestPermission()) {
       final Contact? contact = await FlutterContacts.openExternalPick();
+      //Should add ChatContactBubble here with provided name, number and profile pic
       if (contact != null) {
         addMessage(Text("Contact: ${contact.displayName}"));
       }

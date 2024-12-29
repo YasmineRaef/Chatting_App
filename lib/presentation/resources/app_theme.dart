@@ -15,8 +15,8 @@ class AppTheme {
       dividerTheme: const DividerThemeData(color: Colors.grey, thickness: 1.5, indent: 80, endIndent: 80),
 
       textTheme: const TextTheme(
-        bodySmall: TextStyle(fontSize: 18, color: Colors.white),
-        bodyMedium: TextStyle(fontSize: 20),
+        bodySmall: TextStyle(fontSize: 16, color: Colors.white),
+        bodyMedium: TextStyle(fontSize: 18),
         bodyLarge: TextStyle(fontSize: 24, color: Colors.white),
       ),
 

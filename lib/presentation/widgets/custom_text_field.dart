@@ -11,9 +11,18 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextFormField(
-        cursorColor: Colors.black,
-        decoration: InputDecoration(prefixIcon: Icon(textIcon), hintText: hintText.tr(context)),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.75,
+        child: TextFormField(
+          cursorHeight: 20,
+          cursorColor: Colors.black,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
+          decoration: InputDecoration(
+              prefixIcon: Icon(textIcon),
+              hintText: hintText.tr(context),
+              hintStyle: Theme.of(context).textTheme.bodyMedium,
+              contentPadding: const EdgeInsets.symmetric(vertical: 16)),
+        ),
       ),
     );
   }

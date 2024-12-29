@@ -8,6 +8,12 @@ class CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(leading: Icon(iconData), title: Text(titleTile), onTap: () => fun());
+    return ListTile(
+        leading: Icon(iconData),
+        title: Text(
+          titleTile,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+        ),
+        onTap: () => fun());
   }
 }
