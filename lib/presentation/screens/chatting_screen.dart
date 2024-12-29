@@ -1,7 +1,6 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 import '../../data/chat_lists.dart';
 import '../resources/app_routes.dart';
@@ -36,11 +35,7 @@ class _ChatBodyState extends State<ChatBody> {
   final _msgController = TextEditingController();
 
   @override
-  void dispose() {
-    _msgController.dispose();
-    _scrollController.dispose();
-    super.dispose();
-  }
+  void dispose() => {_msgController.dispose(), _scrollController.dispose(), super.dispose()};
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -63,21 +58,19 @@ class _ChatBodyState extends State<ChatBody> {
                 children: [
                   Align(child: DateChip(date: DateTime.now())),
                   Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: AlignmentDirectional.centerStart,
                     child: Column(
+                      spacing: 10,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        for (int i = 0; i < msgGot.length - 1; i++) ...[const Gap(10), msgGot[i]]
-                      ],
+                      children: List.generate(msgGot.length, (i) => msgGot[i]),
                     ),
                   ),
                   Align(
-                    alignment: Alignment.centerRight,
+                    alignment: AlignmentDirectional.centerEnd,
                     child: Column(
+                      spacing: 10,
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        for (int i = 0; i < msgSent.length; i++) ...[const Gap(10), msgSent[i]]
-                      ],
+                      children: List.generate(msgSent.length, (i) => msgSent[i]),
                     ),
                   ),
                 ],
@@ -85,54 +78,57 @@ class _ChatBodyState extends State<ChatBody> {
             ),
           ),
         ),
-        if (_showEmojiPicker)
-          SizedBox(
-            height: 250,
-            child: EmojiPicker(onEmojiSelected: (category, emoji) => _msgController.text += emoji.emoji),
-          ),
-        SizedBox(
-          height: 75,
-          width: double.maxFinite,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const MenuButton(),
-              IconButton(
-                icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
-                onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: TextField(
-                  controller: _msgController,
-                  cursorColor: Colors.black,
-                  cursorHeight: 18,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-                  decoration: InputDecoration(
-                    filled: false,
-                    hintText: "Enter your message",
-                    contentPadding: EdgeInsets.all(10),
-                    border:
-                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
-                    focusedBorder:
-                        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
-                  ),
-                ),
-              ),
-              IconButton(
-                icon: const Icon(Icons.send, color: Colors.teal),
-                onPressed: () {
-                  setState(() {
-                    addMessage(ChatMessageBubble(message: _msgController.text));
-                    _msgController.clear();
-                  });
-                  _scrollToBottom();
-                },
-              ),
-            ],
-          ),
-        ),
+        _buildEmojiPicker(),
+        _buildBottomBox(context),
       ],
+    );
+  }
+
+  Visibility _buildEmojiPicker() {
+    return Visibility(
+      visible: _showEmojiPicker,
+      child: SizedBox(height: 250, child: EmojiPicker(onEmojiSelected: (_, emoji) => _msgController.text += emoji.emoji)),
+    );
+  }
+
+  SizedBox _buildBottomBox(BuildContext context) {
+    return SizedBox(
+      height: 75,
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          const MenuButton(),
+          IconButton(
+            icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
+            onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
+          ),
+          _buildMessageBar(context),
+          IconButton(
+            icon: const Icon(Icons.send, color: Colors.teal),
+            onPressed: () {
+              setState(() {
+                addMessage(ChatMessageBubble(message: _msgController.text));
+                _msgController.clear();
+              });
+              _scrollToBottom();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  SizedBox _buildMessageBar(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.sizeOf(context).width * .5,
+      child: TextField(
+        cursorHeight: 18,
+        controller: _msgController,
+        cursorColor: Colors.black,
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+        decoration: InputDecoration(hintText: "Enter your message", contentPadding: EdgeInsets.all(10)),
+      ),
     );
   }
 }

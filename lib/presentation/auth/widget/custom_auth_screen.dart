@@ -18,7 +18,7 @@ class CustomAuthScreen extends StatelessWidget {
           child: Column(
             children: [
               Image(
-                  height: MediaQuery.of(context).size.height * 0.39,
+                  height: MediaQuery.sizeOf(context).height * .39,
                   image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
               const Gap(20),
               Text(talk.tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),

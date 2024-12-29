@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class ChatMessageBubble extends StatelessWidget {
@@ -27,7 +29,8 @@ class ChatImageBubble extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration:
           BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
-      child: Image(image: AssetImage(imagePath)),
+      // TODO: Image.network when connecting backend
+      child: Image.file(File(imagePath)),
     );
   }
 }
@@ -40,13 +43,10 @@ class ChatContactBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.62,
-      height: MediaQuery.of(context).size.height * 0.12,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: Colors.teal.shade300, width: 2),
-      ),
+      width: MediaQuery.sizeOf(context).width * .62,
+      height: MediaQuery.sizeOf(context).height * .12,
+      decoration:
+          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Row(
@@ -55,10 +55,7 @@ class ChatContactBubble extends StatelessWidget {
             CircleAvatar(radius: 30, foregroundImage: AssetImage(imagePath)),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(contactName),
-                Text(contactNumber),
-              ],
+              children: [Text(contactName), Text(contactNumber)],
             ),
           ],
         ),

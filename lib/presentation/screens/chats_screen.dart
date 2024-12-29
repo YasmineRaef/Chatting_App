@@ -5,18 +5,8 @@ import '../resources/app_routes.dart';
 import '../widgets/chatter.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_screen.dart';
-import '../widgets/search_box.dart';
 
 class ChatsScreen extends StatelessWidget {
-  // final List<Chat> chats;
-  /*
-    Chat Class:
-    String contactName 
-    int unreadMessages
-    String contactLastMessage
-    String contactProfilePicture
-    String || DateTime lastMessageTime
-  */
   const ChatsScreen({super.key});
 
   @override
@@ -31,7 +21,7 @@ class ChatsScreen extends StatelessWidget {
           child: Column(
             children: [
               const Gap(10),
-              const SearchBox(),
+              _buildSearchBox(),
               const Gap(35),
               ListView.separated(
                 itemCount: 10,
@@ -43,6 +33,20 @@ class ChatsScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildSearchBox() {
+    return TextField(
+      cursorHeight: 18,
+      cursorColor: Colors.black,
+      decoration: InputDecoration(
+        filled: false,
+        prefixIcon: Icon(Icons.search),
+        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
+        focusedBorder:
+            const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)), borderSide: BorderSide(color: Colors.teal, width: 2)),
       ),
     );
   }

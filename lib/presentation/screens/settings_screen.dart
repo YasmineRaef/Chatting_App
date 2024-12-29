@@ -16,22 +16,15 @@ class SettingsScreen extends StatelessWidget {
       pageTitle: "settings",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
-      //
       contentBody: Center(
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
               Gap(50),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: ThemeButton(),
-              ),
+              SizedBox(width: MediaQuery.sizeOf(context).width * .85, child: ThemeButton()),
               Gap(20),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.85,
-                child: LanguageButton(),
-              ),
+              SizedBox(width: MediaQuery.sizeOf(context).width * .85, child: LanguageButton()),
               Gap(50),
               GoToButton(text: "logOut", directedPage: NamedRoutes.welcomeScreen)
             ],

@@ -12,16 +12,17 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.75,
+        width: MediaQuery.sizeOf(context).width * .75,
         child: TextFormField(
           cursorHeight: 20,
           cursorColor: Colors.black,
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
           decoration: InputDecoration(
-              prefixIcon: Icon(textIcon),
-              hintText: hintText.tr(context),
-              hintStyle: Theme.of(context).textTheme.bodyMedium,
-              contentPadding: const EdgeInsets.symmetric(vertical: 16)),
+            prefixIcon: Icon(textIcon),
+            hintText: hintText.tr(context),
+            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            contentPadding: const EdgeInsets.symmetric(vertical: 16),
+          ),
         ),
       ),
     );

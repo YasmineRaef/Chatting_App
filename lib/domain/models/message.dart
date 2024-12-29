@@ -1,11 +1,12 @@
 class Message {
   final String id;
-  final bool isRead;
+  final String? type;
   final String chatId;
   final String content;
   final String senderId;
   final String? mediaUrl;
   final DateTime timestamp;
+  final Map<String, bool>? readReceipts;
 
   const Message({
     required this.id,
@@ -13,7 +14,8 @@ class Message {
     required this.content,
     required this.senderId,
     required this.timestamp,
+    this.type,
     this.mediaUrl,
-    this.isRead = false,
+    this.readReceipts,
   });
 }
