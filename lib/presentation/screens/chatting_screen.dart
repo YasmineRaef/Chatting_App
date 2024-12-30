@@ -95,26 +95,29 @@ class _ChatBodyState extends State<ChatBody> {
     return SizedBox(
       height: 75,
       width: double.maxFinite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const MenuButton(),
-          IconButton(
-            icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
-            onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
-          ),
-          _buildMessageBar(context),
-          IconButton(
-            icon: const Icon(Icons.send, color: Colors.teal),
-            onPressed: () {
-              setState(() {
-                addMessage(ChatMessageBubble(message: _msgController.text));
-                _msgController.clear();
-              });
-              _scrollToBottom();
-            },
-          ),
-        ],
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const MenuButton(),
+            IconButton(
+              icon: const Icon(Icons.tag_faces_rounded, color: Colors.teal),
+              onPressed: () => setState(() => _showEmojiPicker = !_showEmojiPicker),
+            ),
+            _buildMessageBar(context),
+            IconButton(
+              icon: const Icon(Icons.send, color: Colors.teal),
+              onPressed: () {
+                setState(() {
+                  addMessage(ChatMessageBubble(message: _msgController.text));
+                  _msgController.clear();
+                });
+                _scrollToBottom();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

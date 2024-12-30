@@ -20,17 +20,38 @@ class ChatMessageBubble extends StatelessWidget {
 class ChatImageBubble extends StatelessWidget {
   final String imagePath;
   const ChatImageBubble({super.key, required this.imagePath});
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 120,
-      padding: const EdgeInsets.all(10),
-      decoration:
-          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
-      // TODO: Image.network when connecting backend
-      child: Image.file(File(imagePath)),
+    return GestureDetector(
+      onTap: () => _showFullScreenImage(context),
+      child: Container(
+        width: MediaQuery.sizeOf(context).width * .3,
+        height: MediaQuery.sizeOf(context).height * .2,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(22),
+          border: Border.all(color: Colors.teal.shade300, width: 2),
+        ),
+        child: Image.file(File(imagePath)),
+      ),
+    );
+  }
+
+  void _showFullScreenImage(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Container(
+            color: Colors.black,
+            child: Image.file(
+              File(imagePath),
+              fit: BoxFit.contain,
+            ),
+          ),
+        );
+      },
     );
   }
 }

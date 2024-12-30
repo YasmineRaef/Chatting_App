@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../presentation/resources/app_assets.dart';
 import '../presentation/widgets/chat_bubbles.dart';
 
 List msgSent = [
   const ChatMessageBubble(message: "Hi"),
-  const ChatImageBubble(imagePath: AppAssets.lettuceProfile),
   const ChatMessageBubble(message: "Nice to meet you too!!"),
   ChatContactBubble(
     imagePath: 'assets/images/profile_lettuce.jpg',
@@ -18,7 +16,6 @@ List msgSent = [
 
 List msgGot = [
   const ChatMessageBubble(message: "Hello!!"),
-  const ChatImageBubble(imagePath: AppAssets.lettuceProfile),
   const ChatMessageBubble(message: "Nice to meet you!!")
 ];
 

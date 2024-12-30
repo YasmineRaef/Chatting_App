@@ -20,6 +20,7 @@ dependencies:
   get_storage: ^2.1.1
   image_picker: ^1.1.2
   popover: ^0.2.8+2
+  string_validator_plus: ^0.0.7
 
 dev_dependencies:
   flutter_lints: ^5.0.0
