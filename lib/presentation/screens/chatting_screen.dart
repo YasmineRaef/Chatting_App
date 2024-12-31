@@ -1,6 +1,7 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../data/chat_lists.dart';
 import '../resources/app_routes.dart';
@@ -87,13 +88,13 @@ class _ChatBodyState extends State<ChatBody> {
   Visibility _buildEmojiPicker() {
     return Visibility(
       visible: _showEmojiPicker,
-      child: SizedBox(height: 250, child: EmojiPicker(onEmojiSelected: (_, emoji) => _msgController.text += emoji.emoji)),
+      child: SizedBox(height: Get.height * .32, child: EmojiPicker(onEmojiSelected: (_, emoji) => _msgController.text += emoji.emoji)),
     );
   }
 
   SizedBox _buildBottomBox(BuildContext context) {
     return SizedBox(
-      height: 75,
+      height: Get.height * .1,
       width: double.maxFinite,
       child: Directionality(
         textDirection: TextDirection.ltr,
@@ -124,7 +125,7 @@ class _ChatBodyState extends State<ChatBody> {
 
   SizedBox _buildMessageBar(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.sizeOf(context).width * .5,
+      width: Get.width * .5,
       child: TextField(
         cursorHeight: 18,
         controller: _msgController,

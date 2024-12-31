@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:popover/popover.dart';
 
 import '../../data/chat_lists.dart';
@@ -12,8 +13,8 @@ class MenuButton extends StatelessWidget {
     return IconButton(
       onPressed: () {
         showPopover(
-          width: MediaQuery.sizeOf(context).width * .55,
-          height: MediaQuery.sizeOf(context).height * .3,
+          width: Get.width * .55,
+          height: Get.height * .27,
           arrowHeight: 0,
           context: context,
           shadow: List.empty(),

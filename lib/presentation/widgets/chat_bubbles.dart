@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChatMessageBubble extends StatelessWidget {
   final String message;
@@ -25,8 +26,8 @@ class ChatImageBubble extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showFullScreenImage(context),
       child: Container(
-        width: MediaQuery.sizeOf(context).width * .3,
-        height: MediaQuery.sizeOf(context).height * .2,
+        width: Get.width * .3,
+        height: Get.height * .2,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -64,8 +65,8 @@ class ChatContactBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width * .62,
-      height: MediaQuery.sizeOf(context).height * .12,
+      width: Get.width * .62,
+      height: Get.height * .12,
       decoration:
           BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22), border: Border.all(color: Colors.teal.shade300, width: 2)),
       child: Padding(

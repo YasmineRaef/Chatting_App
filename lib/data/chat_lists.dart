@@ -14,10 +14,7 @@ List msgSent = [
   )
 ];
 
-List msgGot = [
-  const ChatMessageBubble(message: "Hello!!"),
-  const ChatMessageBubble(message: "Nice to meet you!!")
-];
+List msgGot = [const ChatMessageBubble(message: "Hello!!"), const ChatMessageBubble(message: "Nice to meet you!!")];
 
 void addMessage(Widget value) => msgSent.add(value);
 
