@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
 import '../../../app/app_localizations.dart';
 import '../../../data/get_storage.dart';
@@ -10,7 +10,9 @@ import '../../widgets/custom_text_field.dart';
 import 'sign_up_controller.dart';
 
 class SignUpScreen extends GetView<SignUpController> {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +23,32 @@ class SignUpScreen extends GetView<SignUpController> {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (_, index) => Center(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Gap(20),
-                Image(
-                    height: MediaQuery.sizeOf(context).height * .39,
-                    image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
-                const Gap(20),
-                Text(controller.pagesTitle[index].tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                const Gap(30),
-                for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
-                const Gap(30),
-                ElevatedButton(
-                    onPressed: controller.goNextPage,
-                    child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").tr(context),
-                        style: Theme.of(context).textTheme.bodySmall)),
-                const Gap(20),
-                ElevatedButton(onPressed: controller.goPreviousPage, child: Text("back".tr(context), style: Theme.of(context).textTheme.bodySmall))
-              ],
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  const Gap(20),
+                  Image(
+                      height: Get.height * .39,
+                      image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
+                  const Gap(20),
+                  Text(controller.pagesTitle[index].trans(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  const Gap(30),
+                  for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
+                  const Gap(30),
+                  ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          controller.goNextPage();
+                        }
+                      },
+                      child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").trans(context),
+                          style: Theme.of(context).textTheme.bodySmall)),
+                  const Gap(20),
+                  ElevatedButton(
+                      onPressed: controller.goPreviousPage, child: Text("back".trans(context), style: Theme.of(context).textTheme.bodySmall))
+                ],
+              ),
             ),
           ),
         ),
@@ -48,7 +58,12 @@ class SignUpScreen extends GetView<SignUpController> {
 
   List<Widget> _buildFormFields(int index, int i) {
     return [
-      CustomTextField(hintText: controller.signUpData[index][i].hintText, textIcon: controller.signUpData[index][i].icon),
+      CustomTextField(
+        hintText: controller.signUpData[index][i].hintText,
+        textIcon: controller.signUpData[index][i].icon,
+        formKey: formKey,
+        currentPage: 'Sign-Up',
+      ),
       i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
     ];
   }

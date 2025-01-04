@@ -58,5 +58,5 @@ Locale? localResolutionCallback(deviceLocale, supportedLocales) {
 }
 
 extension Tr on String {
-  String tr(BuildContext context) => AppLocalizations.of(context)!.translate(this);
+  String trans(BuildContext context) => AppLocalizations.of(context)!.translate(this);
 }
