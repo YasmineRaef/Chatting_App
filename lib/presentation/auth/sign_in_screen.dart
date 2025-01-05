@@ -32,7 +32,7 @@ class SignInScreen extends StatelessWidget {
           currentPage: 'Sign-In',
         ),
         Gap(30),
-        GoToButton(text: "enter", directedPage: (formKey.currentState!.validate())? NamedRoutes.chatsScreen:''),
+        GoToButton(text: "enter", directedPage: (formKey.currentState!.validate()) ? NamedRoutes.chatsScreen : ''),
         Gap(10),
         GoToButton(text: "back", directedPage: NamedRoutes.welcomeScreen)
       ],

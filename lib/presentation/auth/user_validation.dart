@@ -102,11 +102,14 @@ class FormController extends GetxController {
     }
   }
 
-  void validateAge(int number) {
-    if (number == 0 || number == 100) {
-      ageError.value = 'Invalid age number..';
+  void validateAge(String input) {
+    int? number = int.tryParse(input);
+    if (number == null) {
+      ageError.value = 'Invalid input. Please enter a number.';
+    } else if (number <= 0 || number > 100) {
+      ageError.value = 'Invalid age number. Age must be between 1 and 100.';
     } else if (number < 18) {
-      ageError.value = 'Sorry, you must be older than 18 years..';
+      ageError.value = 'Sorry, you must be older than 18 years.';
     } else {
       age.value = number.toString();
       ageError.value = null;

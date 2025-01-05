@@ -37,11 +37,7 @@ class SignUpScreen extends GetView<SignUpController> {
                   for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
                   const Gap(30),
                   ElevatedButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          controller.goNextPage();
-                        }
-                      },
+                      onPressed: () => formKey.currentState!.validate() ? controller.goNextPage() : null,
                       child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").trans(context),
                           style: Theme.of(context).textTheme.bodySmall)),
                   const Gap(20),

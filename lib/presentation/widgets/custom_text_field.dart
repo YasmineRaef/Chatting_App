@@ -1,6 +1,7 @@
 import 'package:chat_app/presentation/auth/user_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../app/app_localizations.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -34,7 +35,8 @@ class CustomTextField extends StatelessWidget {
               onChanged: (value) {
                 _validateField(value);
               },
-              validator: (value) => _validateField(value!),
+              validator: (value) =>
+                  _validateField(value!), // after checking store user credentials, for sign-in see if exists sign-up validate and store
               decoration: InputDecoration(
                 prefixIcon: Icon(textIcon),
                 hintText: hintText.trans(context),
@@ -53,7 +55,7 @@ class CustomTextField extends StatelessWidget {
     // sign up
     switch (hintText) {
       case 'name':
-        checkUsername(value) ? formController.usernameError.value = ' Username already exists' : formController.validateUsername(value);
+        checkUsername(value) ? formController.usernameError.value = 'Username already exists' : formController.validateUsername(value);
       case 'createPass':
         formController.validatePassword(value);
       case 'phone':
@@ -61,8 +63,7 @@ class CustomTextField extends StatelessWidget {
       case 'confirmPass':
         formController.validateConfirmPassword(value);
       case 'age':
-        int? ageValue = int.tryParse(value);
-        if (ageValue != null) formController.validateAge(ageValue);
+        formController.validateAge(value);
         break;
       default:
         break;
