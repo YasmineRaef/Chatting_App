@@ -24,6 +24,7 @@ class AppTheme {
 
       // TextFormField
       inputDecorationTheme: const InputDecorationTheme(
+        errorMaxLines: 2,
         contentPadding: EdgeInsets.all(10),
         fillColor: Color.fromRGBO(238, 238, 238, 1),
         prefixIconColor: Color.fromRGBO(66, 66, 66, 1),

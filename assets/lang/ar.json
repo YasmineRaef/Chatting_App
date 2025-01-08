@@ -1,13 +1,21 @@
 {
+  "appName": "Lettuce Chat",
+
   "dark": "للتغيير للوضع المظلم",
   "light": "للتغيير للوضع المضئ",
+
   "language": "للتغيير للانجليزية اضغط هنا",
-  "appName": "Lettuce Chat",
+
   "welcome": "Hi! I'm Letty the lettuce",
-  "welcomeSignUp": "انشاء حساب جديد",
   "signInWelcome": "تسجيل دخول",
+  "welcomeSignUp": "انشاء حساب جديد",
+  
+  "name": "ادخل اسمك",
+  "age": "ادخل عمرك هنا",
   "username": "ادخل حسابك",
+  "phone": "ادخل رقم هاتفك",
   "password": "ادخل كلمة السر",
+  
   "enter": "دخول",
   "back": "رجوع",
   "next": "التالي",
@@ -15,11 +23,7 @@
   "lettyAge": "كم عمرك",
   "lettyPassword": "مرحبا بالعضو الجديد",
   "lettyPhone": "سعدت بلقائك",
-  "createPass": "انشاء كلمة السر",
-  "confirmPass": "تاكيد كلمة السر",
-  "name": "ادخل اسمك",
-  "phone": "ادخل رقم هاتفك",
-  "age": "ادخل عمرك هنا",
+  "confirm password": "تاكيد كلمة السر",
   "profile": "الملف الشخصي",
   "logOut": "تسجيل خروج",
   "settings": "الاعدادات",

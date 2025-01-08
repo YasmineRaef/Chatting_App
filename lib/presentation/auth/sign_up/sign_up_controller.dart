@@ -22,7 +22,7 @@ class SignUpController extends GetxController {
   static const List<List<({String hintText, IconData icon})>> _signUpData = [
     [(hintText: "age", icon: Icons.cake)],
     [(hintText: "name", icon: Icons.person), (hintText: "phone", icon: Icons.phone)],
-    [(hintText: "createPass", icon: Icons.remove_red_eye), (hintText: "confirmPass", icon: Icons.remove_red_eye)],
+    [(hintText: "password", icon: Icons.remove_red_eye), (hintText: "confirm password", icon: Icons.remove_red_eye)],
   ];
 
   void goNextPage() {

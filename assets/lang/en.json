@@ -1,10 +1,17 @@
 {
   "appName": "Lettuce Chat",
+
   "welcome": "Hi ! I'm Letty the lettuce",
   "welcomeSignUp": "New Here? Let's set you up",
   "signInWelcome": "Already have an account? Sign in",
+
+  "name": "Enter your name",
+  "age": "Enter your age here",
   "username": "Enter your username",
   "password": "Enter your password",
+  "phone": "Enter your phone number",
+  "confirm password": "Confirm your password",
+
   "enter": "Enter",
   "back": "Back",
   "next": "Next",
@@ -12,20 +19,20 @@
   "lettyAge": "How old are you",
   "lettyPassword": "A new member, WOW",
   "lettyPhone": "Nice to meet you",
-  "createPass": "Create a password",
-  "confirmPass": "Confirm your password",
-  "name": "Enter your name",
-  "phone": "Enter your phone number",
-  "age": "Enter your age here",
+
   "profile": "Profile",
-  "logOut": "Log Out",
   "settings": "Settings",
+
+  "signIn": "Sign In",
+  "logOut": "Log Out",
+
   "dark": "To change to dark",
   "light": "To change to light",
   "language": "To change to arabic ",
+
   "profileSave": "Save changes",
   "profileDelete": "Delete Account",
   "Welcome Back": "Welcome Back",
-  "Activate your new account": "Activate your new account",
-  "signIn": "Sign In"
+
+  "Activate your new account": "Activate your new account"
 }

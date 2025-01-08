@@ -12,19 +12,19 @@ import 'sign_up_controller.dart';
 class SignUpScreen extends GetView<SignUpController> {
   SignUpScreen({super.key});
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-        controller: controller.pageController,
-        itemCount: controller.signUpData.length,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (_, index) => Center(
-          child: SingleChildScrollView(
-            child: Form(
-              key: formKey,
+      body: Form(
+        key: formKey,
+        child: PageView.builder(
+          controller: controller.pageController,
+          itemCount: controller.signUpData.length,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (_, index) => Center(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   const Gap(20),
@@ -54,12 +54,7 @@ class SignUpScreen extends GetView<SignUpController> {
 
   List<Widget> _buildFormFields(int index, int i) {
     return [
-      CustomTextField(
-        hintText: controller.signUpData[index][i].hintText,
-        textIcon: controller.signUpData[index][i].icon,
-        formKey: formKey,
-        currentPage: 'Sign-Up',
-      ),
+      CustomTextField(icon: controller.signUpData[index][i].icon, hintText: controller.signUpData[index][i].hintText),
       i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
     ];
   }

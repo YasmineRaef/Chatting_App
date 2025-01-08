@@ -9,8 +9,9 @@ import 'widget/custom_auth_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   final bool isNewMember;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   SignInScreen({super.key, required this.isNewMember});
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +19,18 @@ class SignInScreen extends StatelessWidget {
       talk: isNewMember ? "Activate your new account" : "Welcome Back",
       contentWidgets: [
         Gap(30),
-        CustomTextField(
-          hintText: "username",
-          textIcon: Icons.person,
-          formKey: formKey,
-          currentPage: 'Sign-In',
+        Form(
+          key: formKey,
+          child: Column(
+            children: [
+              CustomTextField(hintText: "name", icon: Icons.person),
+              CustomDivider(),
+              CustomTextField(hintText: "password", icon: Icons.remove_red_eye),
+              Gap(30),
+              GoToButton(text: "enter", directedPage: (formKey.currentState!.validate()) ? NamedRoutes.chatsScreen : ''),
+            ],
+          ),
         ),
-        CustomDivider(),
-        CustomTextField(
-          hintText: "password",
-          textIcon: Icons.remove_red_eye,
-          formKey: formKey,
-          currentPage: 'Sign-In',
-        ),
-        Gap(30),
-        GoToButton(text: "enter", directedPage: (formKey.currentState!.validate()) ? NamedRoutes.chatsScreen : ''),
         Gap(10),
         GoToButton(text: "back", directedPage: NamedRoutes.welcomeScreen)
       ],

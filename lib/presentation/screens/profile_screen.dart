@@ -8,8 +8,9 @@ import '../widgets/custom_screen.dart';
 import '../widgets/custom_text_field.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   ProfileScreen({super.key});
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,26 +30,11 @@ class ProfileScreen extends StatelessWidget {
                   child: CircleAvatar(radius: 80, foregroundImage: AssetImage(AppAssets.lettuceLight)),
                 ),
                 Gap(40),
-                CustomTextField(
-                  hintText: "Yasmine Raef Mohamed",
-                  textIcon: Icons.abc,
-                  formKey: formKey,
-                  currentPage: 'Profile',
-                ),
+                CustomTextField(icon: Icons.abc, hintText: "Yasmine Raef Mohamed"),
                 Gap(20),
-                CustomTextField(
-                  hintText: "+1 (929) 739-8937",
-                  textIcon: Icons.numbers,
-                  formKey: formKey,
-                  currentPage: 'Profile',
-                ),
+                CustomTextField(icon: Icons.numbers, hintText: "+1 (929) 739-8937"),
                 Gap(20),
-                CustomTextField(
-                  hintText: "01/01/2004",
-                  textIcon: Icons.cake,
-                  formKey: formKey,
-                  currentPage: 'Profile',
-                ),
+                CustomTextField(icon: Icons.cake, hintText: "01/01/2004"),
                 Gap(40),
                 GoToButton(text: "profileSave", directedPage: NamedRoutes.profileScreen),
                 Gap(20),
