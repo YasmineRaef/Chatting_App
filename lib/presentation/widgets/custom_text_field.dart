@@ -20,7 +20,7 @@ class CustomTextField extends StatelessWidget {
         cursorColor: Colors.black,
         decoration: InputDecoration(
           prefixIcon: Icon(icon),
-          hintText: hintText.trans(context),
+          hintText: Tr(hintText).tr(context),
           hintStyle: Theme.of(context).textTheme.bodyMedium,
           contentPadding: const EdgeInsets.symmetric(vertical: 16),
         ),

@@ -47,7 +47,7 @@ class _ThemeButtonState extends State<ThemeButton> {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () => setState(() => Storage.toggleAppThemeMode()),
-      title: Text((Storage.isDarkMode() ? "light" : "dark").trans(context)),
+      title: Text((Storage.isDarkMode() ? "light" : "dark").tr(context)),
       trailing: Icon(Storage.isDarkMode() ? Icons.light_mode : Icons.dark_mode, color: Colors.black),
     );
   }
@@ -59,7 +59,7 @@ class LanguageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text("language".trans(context)),
+      title: Text("language".tr(context)),
       onTap: () => Storage.toggleAppLanguageCode(),
       trailing: const Icon(Icons.language, color: Colors.black),
     );

@@ -32,17 +32,17 @@ class SignUpScreen extends GetView<SignUpController> {
                       height: Get.height * .39,
                       image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
                   const Gap(20),
-                  Text(controller.pagesTitle[index].trans(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  Text(Tr(controller.pagesTitle[index]).tr(context), style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   const Gap(30),
                   for (int i = 0; i < controller.signUpData[index].length; ++i) ..._buildFormFields(index, i),
                   const Gap(30),
                   ElevatedButton(
                       onPressed: () => formKey.currentState!.validate() ? controller.goNextPage() : null,
-                      child: Text(((index == controller.signUpData.length - 1) ? "signIn" : "next").trans(context),
+                      child: Text(Tr(((index == controller.signUpData.length - 1) ? "signIn" : "next")).tr(context),
                           style: Theme.of(context).textTheme.bodySmall)),
                   const Gap(20),
                   ElevatedButton(
-                      onPressed: controller.goPreviousPage, child: Text("back".trans(context), style: Theme.of(context).textTheme.bodySmall))
+                      onPressed: controller.goPreviousPage, child: Text(Tr("back").tr(context), style: Theme.of(context).textTheme.bodySmall))
                 ],
               ),
             ),
