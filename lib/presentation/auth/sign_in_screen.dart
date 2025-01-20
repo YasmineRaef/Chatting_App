@@ -9,9 +9,9 @@ import 'widget/custom_auth_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   final bool isNewMember;
-  SignInScreen({super.key, required this.isNewMember});
+  const SignInScreen({super.key, required this.isNewMember});
 
-  final formKey = GlobalKey<FormState>();
+  static final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class SignInScreen extends StatelessWidget {
               CustomDivider(),
               CustomTextField(hintText: "password", icon: Icons.remove_red_eye),
               Gap(30),
-              GoToButton(text: "enter", directedPage: (formKey.currentState!.validate()) ? NamedRoutes.chatsScreen : ''),
+              GoToButton(text: "enter", directedPage: (formKey.currentState?.validate() ?? false) ? NamedRoutes.chatsScreen : ''),
             ],
           ),
         ),

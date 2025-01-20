@@ -2,11 +2,14 @@ import 'package:get/get.dart';
 
 String currentPassword = '';
 
-class FormController extends GetxController {
-  String? validation(String value, String label) {
-    if (value.isEmpty) {
-      return 'Empty field! Please enter your $label'; // name - password - phone number - age
+class FormController {
+  static String? validation(String? value, String label) {
+    if (value == null) {
+      return 'Empty field! Please enter your $label';
+    } else if (value.isEmpty) {
+      return 'Empty field! Please enter your $label';
     } else {
+      
       // Username
       if (label == 'name') {
         if (value.length < 3 || value.length > 16) {
@@ -23,6 +26,7 @@ class FormController extends GetxController {
           return 'Invalid name';
         }
       }
+
       // Password
       if (label == 'password') {
         if (value.length < 6) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../app/app_localizations.dart';
 import '../auth/user_validation.dart';
@@ -7,9 +6,7 @@ import '../auth/user_validation.dart';
 class CustomTextField extends StatelessWidget {
   final IconData icon;
   final String hintText;
-  CustomTextField({super.key, required this.hintText, required this.icon});
-
-  final formController = Get.put(FormController());
+  const CustomTextField({super.key, required this.hintText, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class CustomTextField extends StatelessWidget {
           hintStyle: Theme.of(context).textTheme.bodyMedium,
           contentPadding: const EdgeInsets.symmetric(vertical: 16),
         ),
-        validator: (value) => formController.validation(value!, hintText),
+        validator: (value) => FormController.validation(value, hintText),
         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black),
       ),
     );
