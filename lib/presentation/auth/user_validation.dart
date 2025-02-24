@@ -9,7 +9,6 @@ class FormController {
     } else if (value.isEmpty) {
       return 'Empty field! Please enter your $label';
     } else {
-      
       // Username
       if (label == 'name') {
         if (value.length < 3 || value.length > 16) {
