@@ -41,6 +41,7 @@ class ChatsScreen extends StatelessWidget {
     return TextField(
       cursorHeight: 18,
       cursorColor: Colors.black,
+      style: TextStyle(color: Colors.black, fontSize: 20),
       decoration: InputDecoration(
         filled: false,
         prefixIcon: Icon(Icons.search),

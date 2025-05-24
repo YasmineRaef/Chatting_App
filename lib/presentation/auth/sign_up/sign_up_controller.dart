@@ -9,7 +9,7 @@ class SignUpController extends GetxController {
 
   List<String> get pagesTitle => _pagesTitle;
   PageController get pageController => _pageController;
-  List<List<({String hintText, IconData icon})>> get signUpData => _signUpData;
+  List<List<({String hintText, IconData icon, bool passwordVisible})>> get signUpData => _signUpData;
 
   @override
   void onClose() => {_pageController.dispose(), super.onClose()};
@@ -19,10 +19,15 @@ class SignUpController extends GetxController {
 
   static final List<String> _pagesTitle = ["lettyAge", "lettyPhone", "lettyPassword"];
 
-  static const List<List<({String hintText, IconData icon})>> _signUpData = [
-    [(hintText: "age", icon: Icons.cake)],
-    [(hintText: "name", icon: Icons.person), (hintText: "phone", icon: Icons.phone)],
-    [(hintText: "password", icon: Icons.remove_red_eye), (hintText: "confirm password", icon: Icons.remove_red_eye)],
+  static const List<List<({String hintText, IconData icon, bool passwordVisible})>> _signUpData = [
+    [
+      (hintText: "age", icon: Icons.cake, passwordVisible: false),
+    ],
+    [(hintText: "name", icon: Icons.person, passwordVisible: false), (hintText: "phone", icon: Icons.phone, passwordVisible: false)],
+    [
+      (hintText: "password", icon: Icons.remove_red_eye, passwordVisible: true),
+      (hintText: "confirm password", icon: Icons.remove_red_eye, passwordVisible: true)
+    ],
   ];
 
   void goNextPage() {

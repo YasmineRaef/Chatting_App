@@ -54,7 +54,10 @@ class SignUpScreen extends GetView<SignUpController> {
 
   List<Widget> _buildFormFields(int index, int i) {
     return [
-      CustomTextField(icon: controller.signUpData[index][i].icon, hintText: controller.signUpData[index][i].hintText),
+      CustomTextField(
+          icon: controller.signUpData[index][i].icon,
+          hintText: controller.signUpData[index][i].hintText,
+          passwordVisible: controller.signUpData[index][i].passwordVisible),
       i == 0 && controller.signUpData[index].length > 1 ? const CustomDivider() : const SizedBox.shrink()
     ];
   }

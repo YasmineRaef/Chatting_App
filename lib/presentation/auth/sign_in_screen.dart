@@ -11,7 +11,7 @@ class SignInScreen extends StatelessWidget {
   final bool isNewMember;
   const SignInScreen({super.key, required this.isNewMember});
 
-  static final formKey = GlobalKey<FormState>();
+  static final signInformKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,14 @@ class SignInScreen extends StatelessWidget {
       contentWidgets: [
         Gap(30),
         Form(
-          key: formKey,
+          key: signInformKey,
           child: Column(
             children: [
-              CustomTextField(hintText: "name", icon: Icons.person),
+              CustomTextField(hintText: "name", icon: Icons.person, passwordVisible: false),
               CustomDivider(),
-              CustomTextField(hintText: "password", icon: Icons.remove_red_eye),
+              CustomTextField(hintText: "password", icon: Icons.remove_red_eye, passwordVisible: true),
               Gap(30),
-              GoToButton(text: "enter", directedPage: (formKey.currentState?.validate() ?? false) ? NamedRoutes.chatsScreen : ''),
+              GoToButton(text: "enter", directedPage: NamedRoutes.chatsScreen),
             ],
           ),
         ),

@@ -71,13 +71,12 @@ class FormController {
         if (number == null) {
           return 'Invalid input. Please enter your (numeric) age';
         } else if (number <= 0 || number > 100) {
-          return 'Invalid age number. Age must be between 1 and 100.';
+          return 'Invalid age number.';
         } else if (number < 18) {
           return 'Sorry, you must be older than 18 years.';
         }
       }
     }
-
     return null;
   }
 }
