@@ -1,5 +1,7 @@
+import 'package:chat_app/app/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 import '../resources/app_routes.dart';
 import '../widgets/buttons.dart';
@@ -27,7 +29,9 @@ class SignInScreen extends StatelessWidget {
               CustomDivider(),
               CustomTextField(hintText: "password", icon: Icons.remove_red_eye, passwordVisible: true),
               Gap(30),
-              GoToButton(text: "enter", directedPage: NamedRoutes.chatsScreen),
+              ElevatedButton(
+                  onPressed: () => signInformKey.currentState?.validate() == true ? Get.offNamed(NamedRoutes.chatsScreen) : null,
+                  child: Text(Tr("enter").tr(context)))
             ],
           ),
         ),
