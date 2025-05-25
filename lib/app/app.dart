@@ -19,7 +19,7 @@ class ChatApp extends StatelessWidget {
       themeMode: Storage.getAppThemeMode(),
       //
       getPages: GeneratedRoutes.getRoute(),
-      initialRoute: NamedRoutes.welcomeScreen,
+      initialRoute: NamedRoutes.splashScreen,
       //
       locale: Get.locale,
       localizationsDelegates: localizationDelegates,

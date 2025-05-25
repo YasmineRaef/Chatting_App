@@ -1,3 +1,4 @@
+import 'package:chat_app/presentation/screens/splash_screen.dart';
 import 'package:get/get.dart';
 
 import '../auth/sign_in_screen.dart';
@@ -10,6 +11,7 @@ import '../screens/settings_screen.dart';
 import 'app_bindings.dart';
 
 class NamedRoutes {
+  static const splashScreen = "/splash";
   static const welcomeScreen = "/welcome";
 
   static const signInScreen = "/sign-in";
@@ -25,6 +27,7 @@ class NamedRoutes {
 class GeneratedRoutes {
   static List<GetPage> getRoute() {
     return [
+      GetPage(name: NamedRoutes.splashScreen, page: () => const SplashScreen()),
       GetPage(name: NamedRoutes.welcomeScreen, page: () => const WelcomeScreen()),
       //
       GetPage(name: NamedRoutes.chatsScreen, page: () => const ChatsScreen()),
