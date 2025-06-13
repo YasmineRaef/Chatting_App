@@ -5,11 +5,11 @@
   "welcomeSignUp": "New Here? Let's set you up",
   "signInWelcome": "Already have an account? Sign in",
 
-  "name": "Enter your name",
+  "name": "Enter name",
   "age": "Enter your age here",
   "username": "Enter your username",
   "password": "Enter your password",
-  "phone": "Enter your phone number",
+  "phone": "Enter phone number",
   "confirm password": "Confirm your password",
 
   "enter": "Enter",

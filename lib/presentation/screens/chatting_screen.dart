@@ -19,6 +19,7 @@ class ChattingScreen extends StatelessWidget {
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
       contentBody: ChatBody(),
+      hasFloatingActionButton: null,
     );
   }
 }

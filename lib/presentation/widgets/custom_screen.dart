@@ -10,13 +10,15 @@ class CustomScreen extends StatelessWidget {
   final Widget contentBody;
   final IconData appBarIcon;
   final String directedPage;
-  const CustomScreen({super.key, required this.contentBody, required this.appBarIcon, required this.pageTitle, required this.directedPage});
+  final Widget? hasFloatingActionButton;
+  const CustomScreen({super.key, required this.contentBody, required this.appBarIcon, required this.pageTitle, required this.directedPage, required this.hasFloatingActionButton});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: contentBody,
       appBar: _buildAppBar(context),
+      floatingActionButton: hasFloatingActionButton,
     );
   }
 
