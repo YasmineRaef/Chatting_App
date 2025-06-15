@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../presentation/widgets/chat_bubbles.dart';
 
@@ -36,12 +37,22 @@ List<Function> menuFunctions = [
     }
   },
   () async {
-    if (await FlutterContacts.requestPermission()) {
+    var status = await Permission.contacts.request();
+    if (status.isGranted) {
       final Contact? contact = await FlutterContacts.openExternalPick();
-      //Should add ChatContactBubble here with provided name, number and profile pic
       if (contact != null) {
-        addMessage(Text("Contact: ${contact.displayName}"));
+        final String name = contact.displayName;
+        final String number = contact.phones.isNotEmpty ? contact.phones.first.number : 'No number';
+        addMessage(
+          ChatContactBubble(
+            imagePath: 'assets/images/profile_lettuce.jpg',
+            contactName: name,
+            contactNumber: number,
+          ),
+        );
       }
+    } else {
+      print("Contacts permission denied.");
     }
   },
 ];
