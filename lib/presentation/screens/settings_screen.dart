@@ -16,7 +16,6 @@ class SettingsScreen extends StatelessWidget {
       pageTitle: "settings",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
-      hasFloatingActionButton: null,
       contentBody: Center(
         child: Padding(
           padding: EdgeInsets.all(10),

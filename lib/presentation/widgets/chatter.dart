@@ -6,17 +6,15 @@ import '../resources/app_colors.dart';
 import '../resources/app_routes.dart';
 
 class Chatter extends StatelessWidget {
-  final String contactName;
-  final String lastMsg;
-  const Chatter({super.key, required this.contactName, required this.lastMsg});
+  const Chatter({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 10),
       onTap: () => Get.offNamed(NamedRoutes.chattingScreen),
-      title: Text(contactName, style: TextStyle(fontSize: 18)),
-      subtitle: Text(lastMsg, style: TextStyle(fontSize: 15)),
+      title: Text("Yasmine Raef", style: TextStyle(fontSize: 18)),
+      subtitle: Text("5 minutes to doorknock 😎", style: TextStyle(fontSize: 15)),
       shape: OutlineInputBorder(borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),
       leading: const CircleAvatar(
           radius: 24, backgroundColor: AppColors.teal700, child: CircleAvatar(radius: 22, backgroundImage: AssetImage(AppAssets.lettuceProfile))),

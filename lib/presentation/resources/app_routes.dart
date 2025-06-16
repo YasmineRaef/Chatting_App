@@ -1,3 +1,4 @@
+import 'package:chat_app/presentation/screens/add_new_contact.dart';
 import 'package:chat_app/presentation/screens/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +23,8 @@ class NamedRoutes {
   static const profileScreen = "/profile";
   static const settingsScreen = "/settings";
   static const chattingScreen = "/chatting";
+
+  static const addNewContact = "/addNewContact";
 }
 
 class GeneratedRoutes {
@@ -38,6 +41,8 @@ class GeneratedRoutes {
       GetPage(name: NamedRoutes.profileScreen, page: () => ProfileScreen()),
       GetPage(name: NamedRoutes.settingsScreen, page: () => const SettingsScreen()),
       GetPage(name: NamedRoutes.chattingScreen, page: () => const ChattingScreen()),
+
+      GetPage(name: NamedRoutes.addNewContact, page: () => const AddNewContact())
     ];
   }
 }

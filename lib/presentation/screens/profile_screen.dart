@@ -18,7 +18,6 @@ class ProfileScreen extends StatelessWidget {
       pageTitle: "profile",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,
-      hasFloatingActionButton: null,
       contentBody: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(10),

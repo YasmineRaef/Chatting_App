@@ -15,12 +15,7 @@ class ChattingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScreen(
-      pageTitle: "Yasmine Raef",
-      appBarIcon: Icons.arrow_back,
-      directedPage: NamedRoutes.chatsScreen,
-      contentBody: ChatBody(),
-      hasFloatingActionButton: null,
-    );
+        pageTitle: "Yasmine Raef", appBarIcon: Icons.arrow_back, directedPage: NamedRoutes.chatsScreen, contentBody: ChatBody());
   }
 }
 
