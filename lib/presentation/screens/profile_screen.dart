@@ -15,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScreen(
+      image: '',
       pageTitle: "profile",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,

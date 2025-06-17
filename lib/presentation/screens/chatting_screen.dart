@@ -10,12 +10,14 @@ import '../widgets/custom_screen.dart';
 import '../widgets/menu_button.dart';
 
 class ChattingScreen extends StatelessWidget {
-  const ChattingScreen({super.key});
+  final String title;
+  final String imgProfileUrl;
+  const ChattingScreen({super.key, required this.title, required this.imgProfileUrl});
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScreen(
-        pageTitle: "Yasmine Raef", appBarIcon: Icons.arrow_back, directedPage: NamedRoutes.chatsScreen, contentBody: ChatBody());
+    return CustomScreen(
+        pageTitle: title, appBarIcon: Icons.arrow_back, directedPage: NamedRoutes.chatsScreen, contentBody: ChatBody(), image: imgProfileUrl);
   }
 }
 

@@ -40,7 +40,7 @@ class GeneratedRoutes {
 
       GetPage(name: NamedRoutes.profileScreen, page: () => ProfileScreen()),
       GetPage(name: NamedRoutes.settingsScreen, page: () => const SettingsScreen()),
-      GetPage(name: NamedRoutes.chattingScreen, page: () => const ChattingScreen()),
+      GetPage(name: NamedRoutes.chattingScreen, page: () => const ChattingScreen(imgProfileUrl: '', title: '')),
 
       GetPage(name: NamedRoutes.addNewContact, page: () => const AddNewContact())
     ];

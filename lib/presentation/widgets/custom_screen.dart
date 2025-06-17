@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../app/app_localizations.dart';
-import '../resources/app_assets.dart';
 import '../resources/app_routes.dart';
 
 class CustomScreen extends StatelessWidget {
@@ -10,7 +9,9 @@ class CustomScreen extends StatelessWidget {
   final Widget contentBody;
   final IconData appBarIcon;
   final String directedPage;
-  const CustomScreen({super.key, required this.contentBody, required this.appBarIcon, required this.pageTitle, required this.directedPage});
+  final String image;
+  const CustomScreen(
+      {super.key, required this.contentBody, required this.appBarIcon, required this.pageTitle, required this.directedPage, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class CustomScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GestureDetector(
             onTap: () => Get.offNamed(NamedRoutes.profileScreen),
-            child: const CircleAvatar(radius: 25, backgroundImage: AssetImage(AppAssets.lettuceLight)),
+            child: CircleAvatar(radius: 25, backgroundImage: image != '' ? NetworkImage(image) : AssetImage('assets/images/lettuce_chat_logo.jpeg')),
           ),
         )
       ],

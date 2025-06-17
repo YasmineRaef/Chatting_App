@@ -1,3 +1,5 @@
+import 'package:faker/faker.dart';
+
 import 'message.dart';
 
 class Chat {
@@ -14,4 +16,21 @@ class Chat {
     this.lastMessage,
     this.isGroup = false,
   });
+}
+
+class ChatData {
+  final String url;
+  final String name;
+  final String message;
+
+  ChatData({required this.url, required this.name, required this.message});
+}
+
+ChatData generatePerson() {
+  final faker = Faker();
+  return ChatData(
+    url: faker.image.image(width: 50, height: 50, keywords: ['people'], random: true),
+    name: faker.person.name(),
+    message: faker.lorem.sentence(),
+  );
 }

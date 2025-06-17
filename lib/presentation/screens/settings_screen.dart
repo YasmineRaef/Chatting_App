@@ -13,6 +13,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScreen(
+      image: '',
       pageTitle: "settings",
       appBarIcon: Icons.arrow_back,
       directedPage: NamedRoutes.chatsScreen,

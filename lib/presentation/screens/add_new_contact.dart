@@ -18,6 +18,7 @@ class _AddNewContactState extends State<AddNewContact> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScreen(
+          image: '',
           pageTitle: "New Contact",
           appBarIcon: Icons.arrow_back,
           directedPage: NamedRoutes.chatsScreen,

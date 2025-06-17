@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
+import '../../domain/models/chat.dart';
 import '../resources/app_routes.dart';
 import '../widgets/chatter.dart';
 import '../widgets/custom_divider.dart';
@@ -18,6 +19,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScreen(
+      image: '',
       pageTitle: "appName",
       appBarIcon: Icons.settings,
       directedPage: NamedRoutes.settingsScreen,
@@ -32,7 +34,10 @@ class _ChatsScreenState extends State<ChatsScreen> {
               ListView.separated(
                 itemCount: 10,
                 shrinkWrap: true,
-                itemBuilder: (_, __) => const Chatter(),
+                itemBuilder: (BuildContext context, int index) {
+                  final chatData = generatePerson();
+                  return Chatter(name: chatData.name, msg: chatData.message, imgUrl: chatData.url, timeStamp: "12:58 PM");
+                },
                 physics: const NeverScrollableScrollPhysics(),
                 separatorBuilder: (_, __) => const CustomDivider(),
               )
