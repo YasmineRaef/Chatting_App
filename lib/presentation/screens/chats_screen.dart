@@ -36,7 +36,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   final chatData = generatePerson();
-                  return Chatter(name: chatData.name, msg: chatData.message, imgUrl: chatData.url, timeStamp: "12:58 PM");
+                  return Chatter(person: chatData);
                 },
                 physics: const NeverScrollableScrollPhysics(),
                 separatorBuilder: (_, __) => const CustomDivider(),

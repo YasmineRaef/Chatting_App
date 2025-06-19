@@ -30,7 +30,11 @@ class CustomScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GestureDetector(
             onTap: () => Get.offNamed(NamedRoutes.profileScreen),
-            child: CircleAvatar(radius: 25, backgroundImage: image != '' ? NetworkImage(image) : AssetImage('assets/images/lettuce_chat_logo.jpeg')),
+            child: CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 26,
+                child: CircleAvatar(
+                    radius: 25, backgroundImage: image != '' ? NetworkImage(image) : AssetImage('assets/images/lettuce_chat_logo.jpeg'))),
           ),
         )
       ],
