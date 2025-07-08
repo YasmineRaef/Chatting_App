@@ -18,4 +18,16 @@ class User {
     this.groups = const [],
     this.contacts = const [],
   });
+
+  User.fromMap({
+    required Map<String, dynamic> map,
+    required String userId,
+  })  : id = map['id'],
+        name = map['name'],
+        number = map['number'],
+        status = map['status'],
+        picture = map['picture'],
+        lastSeen = map['lastSeen'] != null ? DateTime.parse(map['lastSeen']) : null,
+        groups = List<String>.from(map['groups'] ?? []),
+        contacts = List<String>.from(map['contacts'] ?? []);
 }

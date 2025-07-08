@@ -7,6 +7,7 @@ import 'package:stroke_text/stroke_text.dart';
 
 import '../../data/get_storage.dart';
 import '../resources/app_assets.dart';
+import '../resources/app_database.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,13 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _redirect() async {
-    await Future.delayed(Duration(seconds: 5));
-    //To see if the user was already signed in or not...
-    final session = true;
-    if (session == true) {
-      Get.offNamed(NamedRoutes.chatsScreen);
-    } else {
+    await Future.delayed(Duration(seconds: 3));
+    final session = supabase.auth.currentSession;
+    if (session == null) {
       Get.offNamed(NamedRoutes.welcomeScreen);
+    } else {
+      Get.offNamed(NamedRoutes.chatsScreen);
     }
   }
 

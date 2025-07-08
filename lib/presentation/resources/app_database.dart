@@ -1,3 +1,7 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+final supabase = Supabase.instance.client;
+
 class AppDataBase {
   static const supabaseUrl = 'https://gsqqawpixeiifstipofl.supabase.co';
   static const supabaseKey = String.fromEnvironment(

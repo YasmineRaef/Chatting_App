@@ -2,7 +2,7 @@ import 'package:chat_app/presentation/screens/chatting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../domain/models/chat.dart';
+import '../../domain/models/mock_data.dart';
 import '../resources/app_colors.dart';
 
 class Chatter extends StatelessWidget {

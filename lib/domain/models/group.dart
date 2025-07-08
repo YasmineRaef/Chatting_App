@@ -20,4 +20,14 @@ class Group {
     this.description,
     this.lastMessage,
   });
+
+  Group.fromMap({required Map<String, dynamic> map, required groupId})
+      : id = map['id'],
+        name = map['name'],
+        adminIds = List<String>.from(map['adminIds'] ?? []),
+        createdAt = DateTime.parse(map['createdAt']),
+        participants = List<String>.from(map['participants'] ?? []),
+        picture = map['picture'],
+        description = map['description'],
+        lastMessage = map['lastMessage'] != null ? Message.fromMap(map: map['lastMessage']) : null;
 }

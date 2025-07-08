@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-import '../../domain/models/chat.dart';
+import '../../domain/models/mock_data.dart';
 import '../resources/app_routes.dart';
 import '../widgets/chatter.dart';
 import '../widgets/custom_divider.dart';
