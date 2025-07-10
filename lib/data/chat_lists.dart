@@ -1,3 +1,4 @@
+import 'package:chat_app/domain/models/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -5,19 +6,13 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../presentation/widgets/chat_bubbles.dart';
 
-List msgSent = [
-  const ChatMessageBubble(message: "Hi"),
-  const ChatMessageBubble(message: "Nice to meet you too!!"),
-  ChatContactBubble(
-    imagePath: 'assets/images/profile_lettuce.jpg',
-    contactName: 'Yasmine Raef',
-    contactNumber: '(929) 739-8937',
-  )
+final List messages = [
+  MessageWrapper(bubble: ChatMessageBubble(message: "Hey! How are you?"), isMine: false),
+  MessageWrapper(bubble: ChatMessageBubble(message: "I'm good, just working on Lettuce Chat ✌️"), isMine: true),
+  MessageWrapper(bubble: ChatMessageBubble(message: "Nice! Can’t wait to see it."), isMine: false)
 ];
 
-List msgGot = [const ChatMessageBubble(message: "Hello!!"), const ChatMessageBubble(message: "Nice to meet you!!")];
-
-void addMessage(Widget value) => msgSent.add(value);
+void addMessage(Widget value) => messages.add(MessageWrapper(bubble: value, isMine: true));
 
 List<IconData> menuIcons = [Icons.camera_alt_outlined, Icons.photo, Icons.contacts];
 List<String> menuTitles = ["Camera", "Gallery", "Add Contact"];

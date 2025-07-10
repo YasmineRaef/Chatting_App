@@ -1,4 +1,5 @@
 import 'package:faker/faker.dart';
+import 'package:flutter/material.dart';
 
 class ChatData {
   final String url;
@@ -16,4 +17,16 @@ ChatData generatePerson() {
       name: faker.person.name(),
       message: faker.lorem.sentence(),
       timeStamp: "12:58 PM");
+}
+
+class TestingMessages {
+  final String content;
+  final bool isMine;
+  TestingMessages({required this.content, required this.isMine});
+}
+
+class MessageWrapper {
+  final Widget bubble;
+  final bool isMine;
+  MessageWrapper({required this.bubble, required this.isMine});
 }

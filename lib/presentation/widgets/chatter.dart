@@ -13,7 +13,7 @@ class Chatter extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 10),
-      onTap: () => Get.to(() => ChattingScreen(title: person.name, imgProfileUrl: person.url)),
+      onTap: () => Get.to(() => ChattingScreen(title: person.name, imgProfileUrl: person.url, lastMessage: person.message)),
       title: Text(person.name, style: TextStyle(fontSize: 18)),
       subtitle: Text(person.message, style: TextStyle(fontSize: 15)),
       shape: OutlineInputBorder(borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),

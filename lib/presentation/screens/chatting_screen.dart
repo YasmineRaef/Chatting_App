@@ -1,3 +1,4 @@
+import 'package:chat_app/domain/models/mock_data.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,12 @@ import '../widgets/menu_button.dart';
 class ChattingScreen extends StatelessWidget {
   final String title;
   final String imgProfileUrl;
-  const ChattingScreen({super.key, required this.title, required this.imgProfileUrl});
+  final String lastMessage;
+  const ChattingScreen({super.key, required this.title, required this.imgProfileUrl, required this.lastMessage});
 
   @override
   Widget build(BuildContext context) {
+    messages.add(MessageWrapper(bubble: ChatMessageBubble(message: lastMessage), isMine: false));
     return CustomScreen(
         pageTitle: title, appBarIcon: Icons.arrow_back, directedPage: NamedRoutes.chatsScreen, contentBody: ChatBody(), image: imgProfileUrl);
   }
@@ -56,22 +59,12 @@ class _ChatBodyState extends State<ChatBody> {
               child: Column(
                 children: [
                   Align(child: DateChip(date: DateTime.now())),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Column(
+                  Column(
                       spacing: 10,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(msgGot.length, (i) => msgGot[i]),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: Column(
-                      spacing: 10,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: List.generate(msgSent.length, (i) => msgSent[i]),
-                    ),
-                  ),
+                      children: List.generate(messages.length, (i) {
+                        final msg = messages[i];
+                        return Align(alignment: msg.isMine ? AlignmentDirectional.centerEnd : AlignmentDirectional.centerStart, child: msg.bubble);
+                      }))
                 ],
               ),
             ),
