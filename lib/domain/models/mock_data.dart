@@ -19,12 +19,6 @@ ChatData generatePerson() {
       timeStamp: "12:58 PM");
 }
 
-class TestingMessages {
-  final String content;
-  final bool isMine;
-  TestingMessages({required this.content, required this.isMine});
-}
-
 class MessageWrapper {
   final Widget bubble;
   final bool isMine;
