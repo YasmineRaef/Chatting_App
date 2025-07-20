@@ -8,21 +8,23 @@ The app is still a work in progress, but here are the current implemented featur
 
 - **Welcome Screen**:
   
-  ![Lettuce_chat_Welcome_screen](https://github.com/user-attachments/assets/36ef243f-73ba-4bf1-b685-fba68186d205)
+  <img width="200" alt="WelcomeScreen" src="https://github.com/user-attachments/assets/ee974db2-cd7c-4ab4-ac8b-35e1a48ecaf9" />
+
 
 - **Authentication**:
   
   Sign-in Screen:
 
-    ![Lettuce_chat_SignIn_screen](https://github.com/user-attachments/assets/03b0ad45-2e49-4952-93d4-2414b91c9a46)
-  
+  <img width="200" alt="SignIn" src="https://github.com/user-attachments/assets/bcf82f3f-bd68-405a-94f1-0f9aa6a16af9" />
+
+
   Sign-Up Screens:
-  
-    ![Lettuce_chat_SignUp_Password](https://github.com/user-attachments/assets/fdab0c73-d0f7-4cbe-a6f9-6ed416d279f9)
-  
-    ![Lettuce_chat_SignUp_name](https://github.com/user-attachments/assets/349f1036-8c9a-499a-b262-e68aa83d34c2)
-  
-    ![Lettuce_chat_SignUp_Age](https://github.com/user-attachments/assets/abd089df-5810-4369-a592-4cee17628e53)
+
+  <img width="200" alt="SignUp_Age" src="https://github.com/user-attachments/assets/d4e28883-5144-4ef0-9d81-37bd248e10ef" />
+
+  <img width="200" alt="SignUp_Phone" src="https://github.com/user-attachments/assets/f13ccab3-6d51-4ea6-9280-78c2ebe77409" />
+
+  <img width="200" alt="SignUp_Password" src="https://github.com/user-attachments/assets/6eb6e2b1-461e-4233-a46c-9d66f43b4fd4" />
 
 
 - **Home Screen**: Displays chats of friends and groups.
@@ -35,11 +37,14 @@ The app is still a work in progress, but here are the current implemented featur
     
 - **Settings Page**:
   
+  <img width="200" alt="Settings_light" src="https://github.com/user-attachments/assets/0796f1e4-e9d4-4aa6-9649-6b8aadb218f0" />
+
+  <img width="200" alt="SettingsDark_Arabic" src="https://github.com/user-attachments/assets/dc92e82b-41b2-4977-b468-0b33df15cc6c" />
+
+
   - Dark/Light mode toggle button.
   - Language selection button (Arabic or English).
   - Logout button.
-    
-    ![Lettuce_chat_Settings_screen](https://github.com/user-attachments/assets/d492603e-5ee3-433e-bbcd-2afca968dd43)
 
 
 ## Backend Integration
