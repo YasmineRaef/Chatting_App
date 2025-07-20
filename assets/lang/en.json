@@ -10,7 +10,7 @@
   "username": "Enter your username",
   "password": "Enter your password",
   "phone": "Enter phone number",
-  "confirm password": "Confirm your password",
+  "confirmPassword": "Confirm your password",
 
   "enter": "Enter",
   "back": "Back",
@@ -32,7 +32,7 @@
 
   "profileSave": "Save changes",
   "profileDelete": "Delete Account",
-  "Welcome Back": "Welcome Back",
+  "welcomeBack": "Welcome Back",
 
-  "Activate your new account": "Activate your new account"
+  "activateYourNewAccount": "Activate your new account"
 }

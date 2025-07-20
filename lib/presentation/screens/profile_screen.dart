@@ -5,7 +5,6 @@ import '../resources/app_assets.dart';
 import '../resources/app_routes.dart';
 import '../widgets/buttons.dart';
 import '../widgets/custom_screen.dart';
-import '../widgets/custom_text_field.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -31,11 +30,23 @@ class ProfileScreen extends StatelessWidget {
                   child: CircleAvatar(radius: 80, foregroundImage: AssetImage(AppAssets.lettuceLight)),
                 ),
                 Gap(40),
-                CustomTextField(icon: Icons.abc, hintText: "Yasmine Raef Mohamed", passwordVisible: false),
+                TextField(
+                    decoration: InputDecoration(
+                  hintText: "Yasmine Raef Mohamed",
+                  prefixIcon: Icon(Icons.abc),
+                )),
                 Gap(20),
-                CustomTextField(icon: Icons.numbers, hintText: "+1 (929) 739-8937", passwordVisible: false),
+                TextField(
+                    decoration: InputDecoration(
+                  hintText: "+1 (929) 739-8937",
+                  prefixIcon: Icon(Icons.numbers),
+                )),
                 Gap(20),
-                CustomTextField(icon: Icons.cake, hintText: "01/01/2004", passwordVisible: false),
+                TextField(
+                    decoration: InputDecoration(
+                  hintText: "01/01/2004",
+                  prefixIcon: Icon(Icons.cake),
+                )),
                 Gap(40),
                 GoToButton(text: "profileSave", directedPage: NamedRoutes.profileScreen),
                 Gap(20),

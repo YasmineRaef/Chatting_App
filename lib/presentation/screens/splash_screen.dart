@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:stroke_text/stroke_text.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../data/get_storage.dart';
 import '../resources/app_assets.dart';
-import '../resources/app_database.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,6 +17,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final supabase = Supabase.instance.client;
+
   @override
   void initState() {
     super.initState();
@@ -25,12 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _redirect() async {
     await Future.delayed(Duration(seconds: 3));
-    final session = supabase.auth.currentSession;
-    if (session == null) {
-      Get.offNamed(NamedRoutes.welcomeScreen);
-    } else {
-      Get.offNamed(NamedRoutes.chatsScreen);
-    }
+    Get.offNamed(supabase.auth.currentSession == null ? NamedRoutes.welcomeScreen : NamedRoutes.chatsScreen);
   }
 
   @override
@@ -43,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Gap(15),
             Image(
                 height: MediaQuery.sizeOf(context).height * .39,
-                image: Storage.isDarkMode() ? const AssetImage(AppAssets.lettuceDark) : const AssetImage(AppAssets.lettuceLight)),
+                image: AssetImage(Storage.isDarkMode() ? AppAssets.lettuceDark : AppAssets.lettuceLight)),
             StrokeText(
               text: Tr("appName").tr(context),
               textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 40, color: Colors.teal, fontWeight: FontWeight.bold),

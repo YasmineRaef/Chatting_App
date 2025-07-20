@@ -3,17 +3,16 @@ import 'package:chat_app/presentation/widgets/custom_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../widgets/custom_text_field.dart';
+import '../auth/base/field_type.dart';
+import '../auth/sign_in/sign_in_controller.dart';
 
-class AddNewContact extends StatefulWidget {
+class AddNewContact extends StatelessWidget {
+  static final _controller = SignInController();
+
   const AddNewContact({super.key});
-  static final addcontactformKey = GlobalKey<FormState>();
 
-  @override
-  State<AddNewContact> createState() => _AddNewContactState();
-}
+  static final _addContactFormKey = GlobalKey<FormState>();
 
-class _AddNewContactState extends State<AddNewContact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +32,15 @@ class _AddNewContactState extends State<AddNewContact> {
                   child: IconButton(onPressed: () {}, icon: Icon(Icons.person_add, size: 70, color: Colors.white)),
                 ),
                 Form(
-                    key: AddNewContact.addcontactformKey,
+                    key: _addContactFormKey,
                     child: Column(
                       children: [
                         Gap(20),
-                        CustomTextField(hintText: "name", icon: Icons.abc, passwordVisible: false),
+                        CustomTextField(label: "name", icon: Icons.abc, controller: _controller),
                         Gap(20),
-                        CustomTextField(hintText: "phone", icon: Icons.numbers, passwordVisible: false),
+                        CustomTextField(label: "phone", icon: Icons.numbers, controller: _controller),
                         Gap(25),
-                        ElevatedButton(onPressed: () => AddNewContact.addcontactformKey.currentState?.validate(), child: Text("Add Contact"))
+                        ElevatedButton(onPressed: () => _addContactFormKey.currentState?.validate(), child: Text("Add Contact"))
                       ],
                     ))
               ],

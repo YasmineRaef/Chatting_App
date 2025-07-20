@@ -1,42 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../resources/app_constants.dart';
 import '../../resources/app_routes.dart';
+import '../base/controller.dart';
+import '../base/user_validation.dart';
 
-class SignUpController extends GetxController {
-  static late int _currentIndex;
-  static late PageController _pageController;
+class SignUpController extends AuthController {
+  SignUpController() : super(["age", "name", "phone", "password", "confirmPassword"]);
 
-  List<String> get pagesTitle => _pagesTitle;
-  PageController get pageController => _pageController;
-  List<List<({String hintText, IconData icon, bool passwordVisible})>> get signUpData => _signUpData;
+  PageController? _pageController;
+  int _currentIndex = 0;
+
+  List<String> get pagesTitle => AppConstants.signUpPagesTitle;
+  List<List<({String hintText, IconData icon})>> get signUpData => AppConstants.signUpData;
+  PageController get pageController => _pageController ??= PageController();
 
   @override
-  void onClose() => {_pageController.dispose(), super.onClose()};
+  void onInit() {
+    _currentIndex = 0;
+    _pageController = PageController();
+    super.onInit();
+  }
 
   @override
-  void onInit() => {_currentIndex = 0, _pageController = PageController(), super.onInit()};
+  void onClose() {
+    _pageController?.dispose();
+    disposeControllers();
+    super.onClose();
+  }
 
-  static final List<String> _pagesTitle = ["lettyAge", "lettyPhone", "lettyPassword"];
+  @override
+  Future<bool> authenticate() async {
+    bool hasError = false;
 
-  static const List<List<({String hintText, IconData icon, bool passwordVisible})>> _signUpData = [
-    [
-      (hintText: "age", icon: Icons.cake, passwordVisible: false),
-    ],
-    [(hintText: "name", icon: Icons.person, passwordVisible: false), (hintText: "phone", icon: Icons.phone, passwordVisible: false)],
-    [
-      (hintText: "password", icon: Icons.remove_red_eye, passwordVisible: true),
-      (hintText: "confirm password", icon: Icons.remove_red_eye, passwordVisible: true)
-    ],
-  ];
+    final passwordValue = getFieldValue("password");
+    final currentFields = signUpData[_currentIndex].map((e) => e.hintText).toList();
+
+    for (String field in currentFields) {
+      final value = getFieldValue(field);
+      final validator = UserValidation.fromLabel(field, password: passwordValue);
+      final error = validator.validateAll(value);
+
+      if (error != null) {
+        Get.snackbar("Invalid Input", "$field: $error");
+        hasError = true;
+      }
+    }
+
+    return !hasError;
+  }
 
   void goNextPage() {
-    if (++_currentIndex >= _signUpData.length) Get.offNamed(NamedRoutes.signInScreen, arguments: true);
-    _pageController.nextPage(duration: const Duration(seconds: 1), curve: Curves.ease);
+    if (++_currentIndex >= signUpData.length) Get.offNamed(NamedRoutes.signInScreen, arguments: true);
+    pageController.nextPage(duration: const Duration(seconds: 1), curve: Curves.ease);
   }
 
   void goPreviousPage() {
-    if (--_currentIndex < 0) Get.offNamed(NamedRoutes.welcomeScreen);
-    _pageController.previousPage(duration: const Duration(seconds: 1), curve: Curves.ease);
+    if (--_currentIndex < 0) {
+      Get.offNamed(NamedRoutes.welcomeScreen);
+    } else {
+      pageController.previousPage(duration: const Duration(seconds: 1), curve: Curves.ease);
+    }
   }
 }

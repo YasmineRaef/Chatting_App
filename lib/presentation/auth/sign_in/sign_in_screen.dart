@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-import '../resources/app_routes.dart';
-import '../widgets/buttons.dart';
-import '../widgets/custom_divider.dart';
-import '../widgets/custom_text_field.dart';
-import 'widget/custom_auth_screen.dart';
+import '../../resources/app_routes.dart';
+import '../../widgets/buttons.dart';
+import '../../widgets/custom_divider.dart';
+import '../base/field_type.dart';
+import '../widget/custom_auth_screen.dart';
+import 'sign_in_controller.dart';
 
 class SignInScreen extends StatelessWidget {
   final bool isNewMember;
+  static final _controller = SignInController();
   const SignInScreen({super.key, required this.isNewMember});
 
   static final signInformKey = GlobalKey<FormState>();
@@ -25,12 +27,12 @@ class SignInScreen extends StatelessWidget {
           key: signInformKey,
           child: Column(
             children: [
-              CustomTextField(hintText: "name", icon: Icons.person, passwordVisible: false),
+              CustomTextField(label: "name", icon: Icons.person, controller: _controller),
               CustomDivider(),
-              CustomTextField(hintText: "password", icon: Icons.remove_red_eye, passwordVisible: true),
+              CustomTextField(label: "password", icon: Icons.remove_red_eye, controller: _controller),
               Gap(30),
               ElevatedButton(
-                  onPressed: () => signInformKey.currentState?.validate() == true ? Get.offNamed(NamedRoutes.chatsScreen) : null,
+                  onPressed: () => signInformKey.currentState!.validate() == true ? Get.offNamed(NamedRoutes.chatsScreen) : null,
                   child: Text(Tr("enter").tr(context)))
             ],
           ),

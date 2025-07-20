@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../resources/app_routes.dart';
-import '../widgets/buttons.dart';
-import '../widgets/custom_divider.dart';
-import 'widget/custom_auth_screen.dart';
+import '../../resources/app_routes.dart';
+import '../../widgets/buttons.dart';
+import '../../widgets/custom_divider.dart';
+import 'custom_auth_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

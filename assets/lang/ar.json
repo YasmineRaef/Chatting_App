@@ -9,13 +9,13 @@
   "welcome": "Hi! I'm Letty the lettuce",
   "signInWelcome": "تسجيل دخول",
   "welcomeSignUp": "انشاء حساب جديد",
-  
+
   "name": "ادخل اسمك",
   "age": "ادخل عمرك هنا",
   "username": "ادخل حسابك",
   "phone": "ادخل رقم هاتفك",
   "password": "ادخل كلمة السر",
-  
+
   "enter": "دخول",
   "back": "رجوع",
   "next": "التالي",
@@ -23,12 +23,12 @@
   "lettyAge": "كم عمرك",
   "lettyPassword": "مرحبا بالعضو الجديد",
   "lettyPhone": "سعدت بلقائك",
-  "confirm password": "تاكيد كلمة السر",
+  "confirmPassword": "تاكيد كلمة السر",
   "profile": "الملف الشخصي",
   "logOut": "تسجيل خروج",
   "settings": "الاعدادات",
   "profileSave": "حفظ التغيير",
   "profileDelete": "حذف الحساب",
-  "Welcome Back": "مرحبا بعودتك",
-  "Activate your new account": " لتفعيل الحساب الجديد"
+  "welcomeBack": "مرحبا بعودتك",
+  "activateYourNewAccount": " لتفعيل الحساب الجديد"
 }
