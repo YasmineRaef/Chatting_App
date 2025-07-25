@@ -32,7 +32,10 @@ class SignInScreen extends StatelessWidget {
               CustomTextField(label: "password", icon: Icons.remove_red_eye, controller: _controller),
               Gap(30),
               ElevatedButton(
-                  onPressed: () => signInformKey.currentState!.validate() == true ? Get.offNamed(NamedRoutes.chatsScreen) : null,
+                  onPressed: () async {
+                    final success = await _controller.authenticate();
+                    if (success) Get.offNamed(NamedRoutes.chatsScreen);
+                  },
                   child: Text(Tr("enter").tr(context)))
             ],
           ),

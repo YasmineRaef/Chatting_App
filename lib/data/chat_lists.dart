@@ -1,6 +1,7 @@
 import 'package:chat_app/domain/models/mock_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -19,14 +20,12 @@ List<String> menuTitles = ["Camera", "Gallery", "Add Contact"];
 List<Function> menuFunctions = [
   () async {
     final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.camera);
-    //Should add ChatImageBubble here with image Path from camera pic
     if (imagePicked != null) {
       addMessage(ChatImageBubble(imagePath: imagePicked.path));
     }
   },
   () async {
     final XFile? imagePicked = await ImagePicker().pickImage(source: ImageSource.gallery);
-    //Should add ChatImageBubble here with image Path
     if (imagePicked != null) {
       addMessage(ChatImageBubble(imagePath: imagePicked.path));
     }
@@ -47,7 +46,8 @@ List<Function> menuFunctions = [
         );
       }
     } else {
-      print("Contacts permission denied.");
+      Get.snackbar("Error", "Contacts permission denied.",
+          snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 2), backgroundColor: Colors.red);
     }
   },
 ];
